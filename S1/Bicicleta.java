@@ -17,5 +17,6 @@ public abstract class Bicicleta extends Thread {
 			System.out.println("Bici nº " + id + "está corriendo");
 			sleep(1000);
 		}
+		System.out.println("Bici nº " + id + "ha terminado");
 	}
 }
