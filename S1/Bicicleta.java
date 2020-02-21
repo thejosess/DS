@@ -2,21 +2,40 @@ package S1;
 
 public abstract class Bicicleta extends Thread {
 
-	private final int id;
-
+	private final long dorsal;
+	
 	Bicicleta()
 	{
-		this.id = this.getId();
+		super();
+		dorsal = this.getId();
 	}
+
+	long getDorsal()
+	{
+		return dorsal;
+	}
+
+	@Override
+	public String toString() {
+		return "Bicicleta de " + getTipo();
+	}
+
+	abstract String getTipo();
 
 	@Override
 	public void run()
 	{
-		for(int i = 0; i < 60; i++)
+		for(int i = 1; i <= Carrera.TIEMPO_CARRERA; i++)
 		{
-			System.out.println("Bici nº " + id + "está corriendo");
-			sleep(1000);
+			if(i == Carrera.TIEMPO_CARRERA)
+				System.out.println("Bici nº " + dorsal + " ha terminado la carrera de " + getTipo());
+			else
+				System.out.println("Bici nº " + dorsal + " está corriendo en la carrera de " + getTipo());
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e){
+				System.out.println("No se ha podido completar la espera");
+			}
 		}
-		System.out.println("Bici nº " + id + "ha terminado");
 	}
 }

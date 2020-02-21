@@ -2,14 +2,14 @@ package S1;
 
 public class FactoriaMontana extends FactoriaCarreraYBicicleta {
 
-	public void crearBicicleta() {
-		// TODO: - implement FactoriaMontana.crearBicicleta
-		throw new UnsupportedOperationException();
+	@Override
+	public Bicicleta crearBicicleta() {
+		return new BiciMontana();
 	}
 
-	public void crearCarrera() {
-		// TODO: - implement FactoriaMontana.crearCarrera
-		throw new UnsupportedOperationException();
+	@Override
+	public Carrera crearCarrera() {
+		return new CarreraMontana();
 	}
 
 }

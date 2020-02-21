@@ -2,8 +2,8 @@ package S1;
 
 public abstract class FactoriaCarreraYBicicleta {
 
-	public abstract void crearBicicleta();
+	public abstract Bicicleta crearBicicleta();
 
-	public abstract void crearCarrera();
+	public abstract Carrera crearCarrera();
 
 }
