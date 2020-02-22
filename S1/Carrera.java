@@ -8,8 +8,6 @@ import java.awt.event.*;
 
 public abstract class Carrera {
 
-	static final int TIEMPO_CARRERA = 6;
-
 	ArrayList<Bicicleta> bicis;
 	double percent;
 	int quitar;
@@ -23,6 +21,7 @@ public abstract class Carrera {
 	private void calcularQuitar()
 	{
 		quitar = (int)(bicis.size() * percent);
+
 	}
 
 	void finalizar()
@@ -42,7 +41,7 @@ public abstract class Carrera {
 	{
 		this.calcularQuitar();
 		
-		final Timer timer = new Timer(1000, new ActionListener()
+		/*final Timer timer = new Timer(1000, new ActionListener()
 		{
 			Random r = new Random();
 			double random;
@@ -62,11 +61,32 @@ public abstract class Carrera {
 				}
 			}
 		});
+			*/
+
+
+
+		Random r = new Random();
+		double random;
+
+
+		for(int i = 0; quitar!= 0; i++)
+		{
+			random = 0 + r.nextDouble() * (5 - 0);			//minimo valor el 0 o el 1??,como maximo el 5 ya que quieres quitarlas antes de que acabe la carrera
+			bicis.get(i).setRetirada((int) random);			//creo que el casteo es necesario, abarcariamos los valores de forma correcta?
+			quitar--;
+			System.out.println("Ha entrado"+this.getTipo()+"el random sale"+random);
+		}
+
+		//para hacer lo de arriba en el mismo momento para todas es cuestión de dejar el random fijo y ya
+		//no sé como lo preferirá la profe
+
 
 		for (final Bicicleta bicicleta : bicis) {
 			bicicleta.start();
 		}
-		timer.start();
+		//timer.start();
+
+
 	}
 
 	abstract void setBici(Bicicleta bici);

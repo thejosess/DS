@@ -3,11 +3,18 @@ package S1;
 public abstract class Bicicleta extends Thread {
 
 	private final long dorsal;
+	static final int TIEMPO_CARRERA = 6;
+	private int retirada;
 	
 	Bicicleta()
 	{
 		super();
 		dorsal = this.getId();
+		retirada=6;
+	}
+
+	void setRetirada(int valor){
+		this.retirada = valor;
 	}
 
 	long getDorsal()
@@ -25,12 +32,20 @@ public abstract class Bicicleta extends Thread {
 	@Override
 	public void run()
 	{
-		for(int i = 1; i <= Carrera.TIEMPO_CARRERA; i++)
+		for(int i = 1; i <= retirada; i++)
 		{
-			if(i == Carrera.TIEMPO_CARRERA)
+			if(i == TIEMPO_CARRERA)
 				System.out.println("Bici nº " + dorsal + " ha terminado la carrera de " + getTipo());
-			else
+			else if(i != retirada)
 				System.out.println("Bici nº " + dorsal + " está corriendo en la carrera de " + getTipo());
+			else
+			{
+				System.out.println("La bici " + dorsal + " ha sido descalificada de la carrera de " + getTipo());
+				//habria que poner aqui stop ya que no lo hacemos en Carrera??
+				this.stop();
+				//aunque no la estariamos quitando del Array, es la unica pega que le veo a esto, pero realmente hace falta quitarlo del array?
+			}
+
 			try {
 				Thread.sleep(1000);
 			} catch (InterruptedException e){
