@@ -4,15 +4,28 @@ module S1
 	public
 	class CarreraCarretera < Carrera
 
-		public
-		def clone()
-			# Not yet implemented
+		def self.clone(valor)
+			super(valor)
+			#new(valor)
 		end
 
-		public
-		def initialize()
-
-			# Not yet implemented
+		def initialize(valor)
+			super(valor)
+			@percent = 0.1
 		end
+
+		def getTipo
+			puts "Carretera"
+		end
+
+
+		def setBici(bici)
+			if bici.getTipo == "Carretera"
+				puts "No se puede inscribir una bicicleta de Carretera a una carrera de Montaña"
+			else
+				@bicis << bici
+		end
+
+		public :clone
 	end
 end

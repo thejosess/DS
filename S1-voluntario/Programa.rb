@@ -19,6 +19,9 @@ module S1
 			@_unnamed_FactoriaCarreraYBicicleta_
 
 			# Not yet implemented
+
+			#CUANDO LE DEMOS A COMENZAR CARRERA HACER JUSTO DEBAJO UN MENSAJE QUE DIGA
+			#hacer aqui el metodo finalizar carrera en la que recorres cada bici
 		end
 	end
 end

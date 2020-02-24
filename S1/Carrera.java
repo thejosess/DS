@@ -66,13 +66,13 @@ public abstract class Carrera {
 
 
 		Random r = new Random();
-		double random;
+		int random;
 
 
 		for(int i = 0; quitar!= 0; i++)
 		{
-			random = 0 + r.nextDouble() * (5 - 0);			//minimo valor el 0 o el 1??,como maximo el 5 ya que quieres quitarlas antes de que acabe la carrera
-			bicis.get(i).setRetirada((int) random);			//creo que el casteo es necesario, abarcariamos los valores de forma correcta?
+			random = 1 + r.nextInt()* (5 - 1);			//minimo valor el 0 o el 1??,como maximo el 5 ya que quieres quitarlas antes de que acabe la carrera
+			bicis.get(i).setRetirada(random);			//creo que el casteo es necesario, abarcariamos los valores de forma correcta?
 			quitar--;
 			System.out.println("Ha entrado"+this.getTipo()+"el random sale"+random);
 		}

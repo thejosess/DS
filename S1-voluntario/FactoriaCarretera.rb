@@ -5,19 +5,13 @@ module S1
 	class FactoriaCarretera < FactoriaCarreraYBicicleta
 
 		public
-		def crearBicicleta()
-			# Not yet implemented
+		def crearBicicleta(valor)			
+			BiciCarretera.clone(valor)
 		end
 
 		public
-		def crearCarrera()
-			# Not yet implemented
-		end
-
-		public
-		def initialize()
-
-			# Not yet implemented
+		def crearCarrera(valor)
+			CarreraCarretera.clone(valor)
 		end
 	end
 end

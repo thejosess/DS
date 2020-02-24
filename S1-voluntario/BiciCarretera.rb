@@ -4,15 +4,21 @@ module S1
 	public
 	class BiciCarretera < Bicicleta
 
-		public
-		def clone()
-			# Not yet implemented
+		def self.clone(valor)
+			super(valor)
+			#new(valor), no sé si esta está bien
 		end
 
-		public
-		def initialize()
-
-			# Not yet implemented
+		def initialize(valor)
+			super(valor)
+			#funcionaria al ser privado??
 		end
+
+		def getTipo
+			puts "Carretera"
+		end
+
+
+		public :clone
 	end
 end

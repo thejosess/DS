@@ -11,11 +11,5 @@ module S1
 		def crearCarrera()
 			# Not yet implemented
 		end
-
-		public
-		def initialize()
-
-			# Not yet implemented
-		end
 	end
 end

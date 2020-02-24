@@ -4,15 +4,24 @@ module S1
 	public
 	class BiciMontana < Bicicleta
 
-		public
-		def clone()
-			# Not yet implemented
+
+
+		def initialize(valor)
+			super(valor)
 		end
 
 		public
-		def initialize()
-
-			# Not yet implemented
+		def getTipo
+			puts "Montaña"
 		end
+		
+		def self.clone(valor)
+			super(valor)
+			#new(valor)
+		end
+
+
+		#private_class_method :new
+		#public :clone :getTipo
 	end
 end
