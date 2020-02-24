@@ -16,7 +16,7 @@ public class Programa {
 
         while(n != -1)
         {
-            System.out.println("¿Cuantas bicicletas conforman la carrera?: ");
+            System.out.println("\n" + "¿Cuantas bicicletas conforman la carrera?: ");
             n = in.nextInt(); in.skip("\n");
 
             for(int i = 0; i < n; i++)
