@@ -1,4 +1,6 @@
-require('./S1/Programa.rb');
+#require_relative "Bicicleta.rb"
+require_relative "BiciMontana.rb"
+require_relative "BiciCarretera.rb"
 
 module S1
 	public
@@ -16,6 +18,8 @@ module S1
 
 		def calcularQuitar
 			@quitar = @bicis.length * @percent
+			#hacer casting
+			@quitar = @quitar.round
 		end
 
 		def finalizar
@@ -24,14 +28,19 @@ module S1
 		end
 
 		def comenzar
-			for i in 0..@quitar
+			calcularQuitar
+
+			i = 0
+
+
+			while @quitar != 0
 				random = rand 1..5 
 				@bicis[i].setRetirada(random)
-				quitar -= 1
-				puts "Ha entrado"+getTipo()+"el random sale"+random
+				@quitar -= 1
+				i += 1
 			end
 
-			for @bicis.each do |bicicleta|
+			@bicis.each do |bicicleta|
 				bicicleta.run
 			end
 

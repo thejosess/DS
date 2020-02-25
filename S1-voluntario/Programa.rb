@@ -1,15 +1,20 @@
-require('./S1/Bicicleta.rb');
-require('./S1/Carrera.rb');
-require('./S1/FactoriaCarreraYBicicleta.rb');
+require_relative "Bicicleta.rb"
+require_relative "Carrera.rb"
+#require_relative "FactoriaCarreraYBicicleta.rb"
+require_relative "FactoriaMontana.rb"
+require_relative "FactoriaCarretera.rb"
+#require de las distintas carreras y bicicletas?
+
+
 
 module S1
 	public
 	class Programa
 
-		def main
+		def self.main
 			
-			factoriaCarretera = factoriaCarretera.new
-			factoriaMontana = factoriaMontana.new
+			factoriaCarretera = FactoriaCarretera.new
+			factoriaMontana = FactoriaMontana.new
 
 			carreraCarretera = factoriaCarretera.crearCarrera
 			carreraMontana = factoriaMontana.crearCarrera
@@ -27,6 +32,7 @@ module S1
 			end
 
 			puts "Comienza la carrera " + carreraCarretera.getTipo
+			puts carreraCarretera.inspect
 			carreraCarretera.comenzar()
 			puts "La carrera " + carreraCarretera.getTipo + " ha finalizado"
 
@@ -34,6 +40,7 @@ module S1
 			carreraMontana.comenzar()
 			puts "La carrera " + carreraMontana.getTipo + " ha finalizado"
 
-
+		end
 	end
+	Programa.main
 end

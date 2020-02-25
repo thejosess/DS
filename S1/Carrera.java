@@ -75,7 +75,6 @@ public abstract class Carrera {
 			random = 1 + r.nextInt()* (5 - 1);			//minimo valor el 0 o el 1??,como maximo el 5 ya que quieres quitarlas antes de que acabe la carrera
 			bicis.get(i).setRetirada(random);			//creo que el casteo es necesario, abarcariamos los valores de forma correcta?
 			quitar--;
-			System.out.println("Ha entrado"+this.getTipo()+"el random sale"+random);
 		}
 
 		//para hacer lo de arriba en el mismo momento para todas es cuestión de dejar el random fijo y ya

@@ -1,10 +1,13 @@
-require('./S1/Bicicleta.rb');
+require_relative "Bicicleta.rb"
 
 module S1
 	public
 	class BiciMontana < Bicicleta
 
-
+		def self.clone(valor)
+			new(valor)
+			#new(valor)
+		end
 
 		def initialize(valor)
 			super(valor)
@@ -12,12 +15,7 @@ module S1
 
 		public
 		def getTipo
-			puts "Montaña"
-		end
-		
-		def self.clone(valor)
-			new(valor)
-			#new(valor)
+			"Montaña"
 		end
 
 

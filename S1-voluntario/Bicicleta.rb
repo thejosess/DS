@@ -1,4 +1,3 @@
-require('./S1/Programa.rb');
 
 module S1
 	public
@@ -36,18 +35,18 @@ module S1
 
 			continuar=true
 			
-			for i in 1..@retirada
+			for i in 1..@retirada do
 
 				if i == @@TIEMPO_CARRERA
-					puts "Bici nº " + dorsal + " ha terminado la carrera de " + getTipo()
+					puts "Bici nº " + @dorsal.to_s + " ha terminado la carrera de " + getTipo()
 					#cotinuar = false
-					exit
-				elsif i != retirada
-					puts "Bici nº " + dorsal + " está corriendo en la carrera de " + getTipo()
+					break
+				elsif i != @retirada
+					puts "Bici nº " + @dorsal.to_s + " está corriendo en la carrera de " + getTipo()
 				else
-					puts "La bici " + dorsal + " ha sido descalificada de la carrera de " + getTipo()
+					puts "La bici " + @dorsal.to_s + " ha sido descalificada de la carrera de " + getTipo()
 					#cotinuar = false
-					exit
+					break
 				end
 				sleep(1)
 			end

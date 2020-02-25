@@ -1,4 +1,6 @@
-require('./S1/FactoriaCarreraYBicicleta.rb');
+require_relative "FactoriaCarreraYBicicleta.rb"
+require_relative "CarreraMontana.rb"
+require_relative "BiciMontana.rb"
 
 module S1
 	public
@@ -12,6 +14,9 @@ module S1
 		public
 		def crearCarrera
 			CarreraMontana.clone
+		end
+
+		def initialize
 		end
 	end
 end

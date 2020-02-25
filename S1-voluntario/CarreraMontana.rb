@@ -1,4 +1,4 @@
-require('./S1/Carrera.rb');
+require_relative "Carrera.rb"
 
 module S1
 	public
@@ -15,15 +15,16 @@ module S1
 		end
 
 		def setBici(bici)
-			if bici.getTipo == "Montaña"
+			if bici.getTipo == "Carretera"
 				puts "No se puede inscribir una bicicleta de Carretera a una carrera de Montaña"
 			else
 				@bicis << bici
+			end
 		end
 
 
 		def getTipo
-			puts "Montaña"
+			"Montaña"
 		end
 
 		public :clone
