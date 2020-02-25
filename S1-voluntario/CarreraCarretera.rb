@@ -1,4 +1,4 @@
-require('./S1/Carrera.rb');
+require('./Carrera.rb');
 
 module S1
 	public

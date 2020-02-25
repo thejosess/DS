@@ -1,6 +1,6 @@
-require('./S1/Bicicleta.rb');
-require('./S1/Carrera.rb');
-require('./S1/FactoriaCarreraYBicicleta.rb');
+require('./Bicicleta.rb');
+require('./Carrera.rb');
+require('./FactoriaCarreraYBicicleta.rb');
 
 module S1
 	public

@@ -1,4 +1,4 @@
-require('./S1/Bicicleta.rb');
+require('./Bicicleta.rb');
 
 module S1
 	public

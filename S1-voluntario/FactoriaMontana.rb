@@ -1,4 +1,4 @@
-require('./S1/FactoriaCarreraYBicicleta.rb');
+require('./FactoriaCarreraYBicicleta.rb');
 
 module S1
 	public

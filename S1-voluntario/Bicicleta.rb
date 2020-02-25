@@ -1,4 +1,4 @@
-require('./S1/Programa.rb');
+require('./Programa.rb');
 
 module S1
 	public
