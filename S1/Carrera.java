@@ -35,6 +35,7 @@ public abstract class Carrera {
 		}
 
 		bicis.clear();
+		System.out.println("La carrera de " + getTipo() + " ha finalizado");
 	}
 
 	void comenzar()

@@ -10,8 +10,8 @@ module S1
 		end
 
 		public
-		def crearCarrera(valor)
-			CarreraCarretera.clone(valor)
+		def crearCarrera
+			CarreraCarretera.clone
 		end
 	end
 end

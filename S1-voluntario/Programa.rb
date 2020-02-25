@@ -6,22 +6,34 @@ module S1
 	public
 	class Programa
 
-		public
-		def initialize()
-			# @AttributeType S1.Bicicleta
-			# # @AssociationType S1.Bicicleta
-			@_unnamed_Bicicleta_
-			# @AttributeType S1.Carrera
-			# # @AssociationType S1.Carrera
-			@_unnamed_Carrera_
-			# @AttributeType S1.FactoriaCarreraYBicicleta
-			# # @AssociationType S1.FactoriaCarreraYBicicleta
-			@_unnamed_FactoriaCarreraYBicicleta_
+		def main
+			
+			factoriaCarretera = factoriaCarretera.new
+			factoriaMontana = factoriaMontana.new
 
-			# Not yet implemented
+			carreraCarretera = factoriaCarretera.crearCarrera
+			carreraMontana = factoriaMontana.crearCarrera
 
-			#CUANDO LE DEMOS A COMENZAR CARRERA HACER JUSTO DEBAJO UN MENSAJE QUE DIGA
-			#hacer aqui el metodo finalizar carrera en la que recorres cada bici
-		end
+
+
+
+			puts "¿Cuantas bicicletas conforman la carrera?: "
+			n = gets.to_i
+			puts "\n"
+
+			for i in 0..n
+				carreraCarretera.setBici(factoriaCarretera.crearBicicleta(i))
+				carreraMontana.setBici(factoriaMontana.crearBicicleta(i))
+			end
+
+			puts "Comienza la carrera " + carreraCarretera.getTipo
+			carreraCarretera.comenzar()
+			puts "La carrera " + carreraCarretera.getTipo + " ha finalizado"
+
+			puts "Comienza la carrera " + carreraMontana.getTipo
+			carreraMontana.comenzar()
+			puts "La carrera " + carreraMontana.getTipo + " ha finalizado"
+
+
 	end
 end

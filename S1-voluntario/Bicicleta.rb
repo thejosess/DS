@@ -7,7 +7,7 @@ module S1
 		@@TIEMPO_CARRERA = 6
 
 		def self.clone(valor)
-			new(valor)
+			#new(valor)
 		end
 
 		def initialize(id)
@@ -36,7 +36,7 @@ module S1
 
 			continuar=true
 			
-			for i in 1..@retirada && continuar
+			for i in 1..@retirada
 
 				if i == @@TIEMPO_CARRERA
 					puts "Bici nº " + dorsal + " ha terminado la carrera de " + getTipo()

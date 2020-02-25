@@ -5,7 +5,7 @@ module S1
 	class Carrera
 
 		def self.clone()
-			new
+			#new
 		end
 
 		def initialize()

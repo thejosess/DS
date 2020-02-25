@@ -10,7 +10,7 @@ module S1
 		end
 
 		def initialize(valor)
-			super(valor)
+			new(valor)
 			#funcionaria al ser privado??
 		end
 

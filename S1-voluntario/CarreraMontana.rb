@@ -4,13 +4,13 @@ module S1
 	public
 	class CarreraMontana < Carrera
 
-		def self.clone(valor)
-			super(valor)
+		def self.clone()
+			new
 			#new(valor)
 		end
 
-		def initialize(valor)
-			super(valor)
+		def initialize()
+			super
 			@percent = 0.2
 		end
 

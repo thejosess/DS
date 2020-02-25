@@ -16,7 +16,7 @@ module S1
 		end
 		
 		def self.clone(valor)
-			super(valor)
+			new(valor)
 			#new(valor)
 		end
 
