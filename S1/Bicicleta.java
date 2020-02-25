@@ -3,14 +3,14 @@ package S1;
 public abstract class Bicicleta extends Thread {
 
 	private final long dorsal;
-	static final int TIEMPO_CARRERA = 6;
+	static final int TIEMPO_CARRERA = 60;
 	private int retirada;
 	
 	Bicicleta()
 	{
 		super();
 		dorsal = this.getId();
-		retirada=6;
+		retirada = TIEMPO_CARRERA;
 	}
 
 	void setRetirada(int valor){
@@ -32,7 +32,7 @@ public abstract class Bicicleta extends Thread {
 	@Override
 	public void run()
 	{
-		for(int i = 1; i <= retirada; i++)
+		for(int i = 1; i <= TIEMPO_CARRERA; i++)
 		{
 			if(i == TIEMPO_CARRERA)
 				System.out.println("Bici nº " + dorsal + " ha terminado la carrera de " + getTipo());

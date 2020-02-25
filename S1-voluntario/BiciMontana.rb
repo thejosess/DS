@@ -1,18 +1,25 @@
-require('./Bicicleta.rb');
+require_relative "Bicicleta.rb"
 
 module S1
 	public
 	class BiciMontana < Bicicleta
 
-		public
-		def clone()
-			# Not yet implemented
+		# def clone(valor)
+		# 	BiciMontana.new(valor)
+		# 	#new(valor)
+		# end
+
+		def initialize(valor)
+			super(valor)
 		end
 
 		public
-		def initialize()
-
-			# Not yet implemented
+		def getTipo
+			"Montaña"
 		end
+
+
+		#private_class_method :new
+		#public :clone :getTipo
 	end
 end

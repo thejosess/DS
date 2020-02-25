@@ -19,11 +19,13 @@ public class Programa {
             System.out.println("\n" + "¿Cuantas bicicletas conforman la carrera?: ");
             n = in.nextInt(); in.skip("\n");
 
-            for(int i = 0; i < n; i++)
-            {
-                carreraCarretera.setBici(factoriaCarretera.crearBicicleta());
-                carreraMontana.setBici(factoriaMontana.crearBicicleta());
-            }
+            // for(int i = 0; i < n; i++)
+            // {
+            //     carreraCarretera.setBici(factoriaCarretera.crearBicicleta());
+            //     carreraMontana.setBici(factoriaMontana.crearBicicleta());
+            // }
+            carreraCarretera.inicializar(n, factoriaCarretera);
+            carreraMontana.inicializar(n, factoriaMontana);
 
             carreraCarretera.comenzar();
             carreraMontana.comenzar();

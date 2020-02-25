@@ -1,18 +1,24 @@
-require('./Bicicleta.rb');
+require_relative "Bicicleta.rb"
 
 module S1
 	public
 	class BiciCarretera < Bicicleta
 
-		public
-		def clone()
-			# Not yet implemented
+		# def clone(valor)
+		# 	BiciCarretera.new(valor)
+		# 	#new(valor), no sé si esta está bien
+		# end
+
+		def initialize(valor)
+			super(valor)
+			#funcionaria al ser privado??
 		end
 
-		public
-		def initialize()
-
-			# Not yet implemented
+		def getTipo
+			"Carretera"
 		end
+
+
+		public :clone
 	end
 end

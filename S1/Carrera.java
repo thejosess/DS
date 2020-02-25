@@ -7,17 +7,21 @@ public abstract class Carrera {
 
 	ArrayList<Bicicleta> bicis;
 	double percent;
-	int quitar;
 
 	Carrera()
 	{
 		bicis = new ArrayList<>();
-		quitar = 0;
 	}
 
-	private void calcularQuitar()
+	void inicializar(int n, FactoriaCarreraYBicicleta factoria)
 	{
-		quitar = (int)(bicis.size() * percent);
+		for(int i = 0; i < n; i++)
+			setBici(factoria.crearBicicleta());
+	}
+
+	int calcularQuitar()
+	{
+		return (int)(bicis.size() * percent);
 	}
 
 	void finalizar()
@@ -30,30 +34,28 @@ public abstract class Carrera {
 			}
 		}
 
-		System.out.println("\n" + quitar + " bicis han sido descalificadas de la carrera de " + getTipo());
+		// System.out.println("\n" + quitar + " bicis han sido descalificadas de la carrera de " + getTipo());
 
 		bicis.clear();
+		System.out.println("La carrera de " + getTipo() + " ha finalizado");
 	}
 
 	void comenzar()
 	{
-		this.calcularQuitar();
+		int quitar = calcularQuitar();
 
 		Random r = new Random();
 		int random;
-		int descalificar = quitar;
 
-
-		for(int i = 0; descalificar!= 0; i++)
+		for(int i = 0; quitar != 0; i++)
 		{
-			random = 0 + r.nextInt((Bicicleta.TIEMPO_CARRERA - 1) + 1) + 1;		//minimo valor el 0 o el 1??,como maximo el 5 ya que quieres quitarlas antes de que acabe la carrera
+			random = r.nextInt(Bicicleta.TIEMPO_CARRERA - 1) + 1;			//minimo valor el 0 o el 1??,como maximo el 5 ya que quieres quitarlas antes de que acabe la carrera
 			bicis.get(i).setRetirada(random);			//creo que el casteo es necesario, abarcariamos los valores de forma correcta?
-			descalificar--;
+			quitar--;
 		}
 
 		//para hacer lo de arriba en el mismo momento para todas es cuestión de dejar el random fijo y ya
 		//no sé como lo preferirá la profe
-
 
 		for (final Bicicleta bicicleta : bicis) {
 			bicicleta.start();

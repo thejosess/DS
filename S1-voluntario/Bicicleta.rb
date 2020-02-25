@@ -1,23 +1,66 @@
-require('./Programa.rb');
-
 module S1
 	public
 	class Bicicleta
 
-		public
-		def clone()
-			# Not yet implemented
+		@@TIEMPO_CARRERA = 60
+
+		# def clone(valor)
+		# 	#new(valor)
+		# end
+
+		def initialize(id)
+			@retirada = @@TIEMPO_CARRERA
+			@dorsal = id
+		end
+		#creo que estaria bien pasandole por argumento el id
+
+		def setRetirada(valor)
+			@retirada = valor
 		end
 
-		public
-		def initialize()
-			# @AttributeType int
-			@_id
-			# @AttributeType S1.Programa
-			# # @AssociationType S1.Programa
-			@_unnamed_Programa_
-
-			# Not yet implemented
+		def self.TIEMPO_CARRERA
+			@@TIEMPO_CARRERA
 		end
+
+		def getDorsal
+			@dorsal
+		end
+
+		attr_reader :retirada
+
+		def to_s
+			"Bicicleta de " + getTipo
+		end
+		
+		def getTipo
+			#metodo abstracto
+		end
+
+		def setId(id)
+			@dorsal = id
+		end
+
+		def run()
+			
+			for i in 1..@@TIEMPO_CARRERA do
+
+				if i == @@TIEMPO_CARRERA
+					puts "Bici nº " + @dorsal.to_s + " ha terminado la carrera de " + getTipo()
+					#cotinuar = false
+					break
+				elsif i != @retirada
+					puts "Bici nº " + @dorsal.to_s + " está corriendo en la carrera de " + getTipo()
+				else
+					puts "La bici " + @dorsal.to_s + " ha sido descalificada de la carrera de " + getTipo()
+					#cotinuar = false
+					break
+				end
+				sleep(1)
+			end
+
+		end
+
+		# public :clone
 	end
+	#bici = Bicicleta.clone(2)
 end
