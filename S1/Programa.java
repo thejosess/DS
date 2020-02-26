@@ -7,20 +7,18 @@ public class Programa {
         int n = 0;
         Scanner in = new Scanner(System.in);
 
-        FactoriaCarreraYBicicleta factoriaCarretera = new FactoriaCarretera();
+        Cliente cliente = new Cliente();
 
-        FactoriaCarreraYBicicleta factoriaMontana = new FactoriaMontana();
-
-        Carrera carreraMontana = factoriaMontana.crearCarrera();
-        Carrera carreraCarretera = factoriaCarretera.crearCarrera();
+        Carrera carreraMontana;
+        Carrera carreraCarretera;
 
         while(n != -1)
         {
-            System.out.println("\n" + "¿Cuantas bicicletas conforman la carrera?: ");
+            System.out.println("\n¿Cuantas bicicletas conforman la carrera? (-1 para finalizar): ");
             n = in.nextInt(); in.skip("\n");
 
-            carreraCarretera.inicializar(n, factoriaCarretera);
-            carreraMontana.inicializar(n, factoriaMontana);
+            carreraCarretera = cliente.crearCarreraCarretera(n);
+            carreraMontana = cliente.crearCarreraMontana(n);
 
             carreraCarretera.comenzar();
             carreraMontana.comenzar();

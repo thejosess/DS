@@ -16,6 +16,12 @@ module S1
 			@percent
 		end
 
+		def inicializar(n, prototipo, factoria)
+			for i in 0..n-1 do
+				setBici(factoria.crear(prototipo, i))
+			end
+		end
+
 		def calcularQuitar
 			@quitar = @bicis.length * @percent
 			@quitar = @quitar.round
