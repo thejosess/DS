@@ -18,13 +18,7 @@ module S1
 
 		def calcularQuitar
 			@quitar = @bicis.length * @percent
-			#hacer casting
 			@quitar = @quitar.round
-		end
-
-		def finalizar
-			#@bicis.each do |bicicleta|				end
-			#hacer algo con las bicis o simplemente esperar??
 		end
 
 		def comenzar
@@ -34,7 +28,8 @@ module S1
 
 			while @quitar != 0
 				random = rand 1..Bicicleta.TIEMPO_CARRERA-1 #FIXME: No me acaba de convencer que quitemos siempre las primeras bicis
-															# Habría que hacer random de las bicis
+															# Habría que hacer random de las bicis - Si haces random a las bicis como sabes que esa no tiene que quitarla?
+															# tendriamos que tener un atributo bool que nos diga si está quitada o no
 				@bicis[i].setRetirada(random)
 				@quitar -= 1
 				i += 1
@@ -55,7 +50,6 @@ module S1
 		def getTipo
 		end
 
-		public :clone
 		private :calcularQuitar
 	end
 end

@@ -41,9 +41,7 @@ public abstract class Bicicleta extends Thread {
 			else
 			{
 				System.out.println("La bici " + dorsal + " ha sido descalificada de la carrera de " + getTipo());
-				//habria que poner aqui stop ya que no lo hacemos en Carrera??
 				this.stop();
-				//aunque no la estariamos quitando del Array, es la unica pega que le veo a esto, pero realmente hace falta quitarlo del array?
 			}
 
 			try {

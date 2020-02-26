@@ -4,15 +4,10 @@ module S1
 
 		@@TIEMPO_CARRERA = 60
 
-		# def clone(valor)
-		# 	#new(valor)
-		# end
-
 		def initialize(id)
 			@retirada = @@TIEMPO_CARRERA
 			@dorsal = id
 		end
-		#creo que estaria bien pasandole por argumento el id
 
 		def setRetirada(valor)
 			@retirada = valor
@@ -60,7 +55,5 @@ module S1
 
 		end
 
-		# public :clone
 	end
-	#bici = Bicicleta.clone(2)
 end
