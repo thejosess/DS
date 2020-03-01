@@ -1,15 +1,22 @@
 #ifndef VISITANTEEQUIPO_H
 #define VISITANTEEQUIPO_H
 
+#include "Bus.h"
+#include "Tarjeta.h"
+#include "Disco.h"
+
+
 class VisitanteEquipo {
 
 
 public:
-	virtual void visitarDisco(Disco d) = 0;
+	// tiene que implementarlos los hijos
+	inline void visitarDisco(Disco d){};
 
-	virtual void visitarTarjeta(Tarjeta t) = 0;
+	inline void visitarTarjeta(Tarjeta t){};
 
-	virtual void visitarBus(Bus b) = 0;
+	inline void visitarBus(Bus b){};
+	// segun he leido por el grupo hay que quitarle lo de virtual y dejarlos vacios
 };
 
 #endif
