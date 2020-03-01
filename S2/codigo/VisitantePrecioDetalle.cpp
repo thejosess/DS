@@ -5,12 +5,3 @@ void VisitantePrecioDetalle::equipoDetalle(Equipo equipo) {
 	throw "Not yet implemented";
 }
 
-void visitarDisco(Disco d){
-
-}
-void visitarTarjeta(Tarjeta t){
-
-}
-void visitarBus(Bus b){
-	
-}
