@@ -7,12 +7,12 @@ class Bus : public ComponenteEquipo {
 
 public:
 	Bus();
-	Bus(int valor, string tipo);
+	Bus(float valor, string tipo);
 	void aceptar(VisitanteEquipo visitante);
-	int getPrecio();
+	float getPrecio();
 	string getTipo();
 	void setTipo(string tipo);
-	void setPrecio(int precio);
+	void setPrecio(float precio);
 };
 
 #endif

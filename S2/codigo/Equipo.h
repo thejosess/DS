@@ -16,11 +16,11 @@ private:
 
 public:
 	//Equipo();
-	Equipo(int pTar, string tTar, int pDis, string tDisc, int pBus, string tBus);
+	Equipo(float pTar, string tTar, float pDis, string tDisc, float pBus, string tBus);
 	int getNumero();
-	int getPrecioTarjeta();
-	int getPrecioDisco();
-	int getPrecioBus();
+	float getPrecioTarjeta();
+	float getPrecioDisco();
+	float getPrecioBus();
 };
 
 #endif

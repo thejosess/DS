@@ -7,12 +7,12 @@
 class VisitantePrecio : public VisitanteEquipo {
 
 private:
-	int coste;
+	float coste;
 
 
 public:
 	VisitantePrecio();
-	void calcularCoste(Equipo equipo);
+	float getCoste();
 
 	void visitarDisco(Disco *d);
 	void visitarTarjeta(Tarjeta *t);

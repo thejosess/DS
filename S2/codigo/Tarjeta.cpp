@@ -6,16 +6,16 @@ Tarjeta::Tarjeta() {
 	setTipo("");
 }
 
-Tarjeta::Tarjeta(int precio, string tipo) {
+Tarjeta::Tarjeta(float precio, string tipo) {
 	setPrecio(precio);
 	setTipo(tipo);
 }
 
-int Tarjeta::getPrecio() {
+float Tarjeta::getPrecio() {
 	return this->precio;
 }
 
-void Tarjeta::setPrecio(int precio) {
+void Tarjeta::setPrecio(float precio) {
 	this->precio = precio;
 }
 

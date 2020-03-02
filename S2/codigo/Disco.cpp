@@ -7,16 +7,16 @@ Disco::Disco() {
 }
 
 
-Disco::Disco(int valor, string tipo) {
+Disco::Disco(float valor, string tipo) {
 	setPrecio(valor);
 	setTipo(tipo);
 }
 
-int Disco::getPrecio() {
+float Disco::getPrecio() {
 	return this->precio;
 }
 
-void Disco::setPrecio(int precio) {
+void Disco::setPrecio(float precio) {
 	this->precio = precio;
 }
 

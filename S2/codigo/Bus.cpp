@@ -6,16 +6,16 @@ Bus::Bus() {
 	setTipo("");
 }
 
-Bus::Bus(int valor, string tipo ){
+Bus::Bus(float valor, string tipo ){
 	setPrecio(valor);
 	setTipo(tipo);
 }
 
-int Bus::getPrecio() {
+float Bus::getPrecio() {
 	return this->precio;
 }
 
-void Bus::setPrecio(int precio)
+void Bus::setPrecio(float precio)
 {
 	this->precio = precio;
 }

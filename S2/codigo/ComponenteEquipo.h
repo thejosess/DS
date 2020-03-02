@@ -11,18 +11,17 @@ class VisitantePrecioDetalle;
 
 class ComponenteEquipo {
 
-/*private: */
-	//si pongo private no me deja acceder en las clases hijas
+protected:
+	float precio;
+	string tipo;
 
 public:
-	int precio;
-	string tipo;
 
 	virtual void aceptar(VisitanteEquipo visitante) = 0;
 	virtual string getTipo() = 0;
-	virtual int getPrecio() = 0;
+	virtual float getPrecio() = 0;
 	virtual void setTipo(string tipo) = 0;
-	virtual void setPrecio(int precio) = 0;
+	virtual void setPrecio(float precio) = 0;
 };
 // hacer como con VisitanteEquipo?
 

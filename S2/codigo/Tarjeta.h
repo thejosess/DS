@@ -8,11 +8,11 @@ class Tarjeta : public ComponenteEquipo {
 
 public:
 	Tarjeta();
-	Tarjeta(int precio, string tipo);
+	Tarjeta(float precio, string tipo);
 	void aceptar(VisitanteEquipo visitante);
-	int getPrecio();
+	float getPrecio();
 	string getTipo();
-	void setPrecio(int precio);
+	void setPrecio(float precio);
 	void setTipo(string tipo);
 };
 

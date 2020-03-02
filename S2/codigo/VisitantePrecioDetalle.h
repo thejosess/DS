@@ -6,6 +6,11 @@
 
 class VisitantePrecioDetalle : public VisitanteEquipo {
 
+protected:
+	Disco disco;
+	Tarjeta tarjeta;
+	Bus bus;
+
 
 public:
 	void equipoDetalle(Equipo equipo);

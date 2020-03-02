@@ -1,6 +1,6 @@
 #include "Equipo.h"
 
-Equipo::Equipo(int pTar, string tTar, int pDis, string tDis, int pBus, string tBus) {
+Equipo::Equipo(float pTar, string tTar, float pDis, string tDis, float pBus, string tBus) {
 	this->tarjeta = Tarjeta(pTar, tTar);
 	this->disco = Disco(pDis, tDis);
 	this->bus = Bus(pBus, tBus);
@@ -10,14 +10,14 @@ int Equipo::getNumero() {
 	return this->NUM;
 }
 
-int Equipo::getPrecioTarjeta() {
+float Equipo::getPrecioTarjeta() {
 	return tarjeta.getPrecio();
 }
-int Equipo::getPrecioDisco() {
+float Equipo::getPrecioDisco() {
 	return disco.getPrecio();
 }
 
-int Equipo::getPrecioBus() {
+float Equipo::getPrecioBus() {
 	return bus.getPrecio();
 }
 
