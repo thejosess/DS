@@ -12,12 +12,8 @@ private:
 
 public:
 	Disco();
-	Disco(float valor, string tipo);
+	Disco(float valor);
 	void aceptar(VisitanteEquipo visitante);
-	float getPrecio();
-	string getTipo();
-	void setPrecio(float precio);
-	void setTipo(string tipo);
 };
 
 #endif

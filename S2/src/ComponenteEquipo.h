@@ -18,10 +18,9 @@ protected:
 public:
 
 	virtual void aceptar(VisitanteEquipo visitante) = 0;
-	virtual string getTipo() = 0;
-	virtual float getPrecio() = 0;
-	virtual void setTipo(string tipo) = 0;
-	virtual void setPrecio(float precio) = 0;
+	string getTipo();
+	float getPrecio();
+	void setPrecio(float precio);
 };
 // hacer como con VisitanteEquipo?
 

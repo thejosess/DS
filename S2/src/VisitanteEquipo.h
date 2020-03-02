@@ -1,8 +1,9 @@
 #ifndef VISITANTEEQUIPO_H
 #define VISITANTEEQUIPO_H
 
-#include "Tarjeta.h"
+#include "Equipo.h"
 #include "Disco.h"
+#include "Tarjeta.h"
 #include "Bus.h"
 //dependencia circular
 
@@ -10,11 +11,11 @@ class VisitanteEquipo {
 
 public:
 	// tiene que implementarlos los hijos
-	void visitarDisco(Disco *d);
+	virtual void visitarDisco(Disco *d);
 
-	void visitarTarjeta(Tarjeta *t);
+	virtual void visitarTarjeta(Tarjeta *t);
 
-	void visitarBus(Bus *b);
+	virtual void visitarBus(Bus *b);
 	// segun he leido por el grupo hay que quitarle lo de virtual y dejarlos vacios
 };
 
