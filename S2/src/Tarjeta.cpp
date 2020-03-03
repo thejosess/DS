@@ -1,5 +1,6 @@
 #include "Tarjeta.h"
 #include "VisitanteEquipo.h"
+#include "iostream"
 
 Tarjeta::Tarjeta() {
 	setPrecio(0);
@@ -11,6 +12,6 @@ Tarjeta::Tarjeta(float precio) {
 	this->tipo = "Tarjeta";
 }
 
-void Tarjeta::aceptar(VisitanteEquipo visitante) {
-	visitante.visitarTarjeta(this);
+void Tarjeta::aceptar(VisitanteEquipo *visitante, Persona *persona) {
+	visitante->visitarTarjeta(this, persona);
 }

@@ -3,6 +3,7 @@ using namespace std;
 #define COMPONENTEEQUIPO_H
 
 #include <string>
+#include "Persona.h"
 
 class VisitanteEquipo;
 class VisitantePrecio;
@@ -17,7 +18,7 @@ protected:
 
 public:
 
-	virtual void aceptar(VisitanteEquipo visitante) = 0;
+	virtual void aceptar(VisitanteEquipo *visitante, Persona *persona) = 0;
 	string getTipo();
 	float getPrecio();
 	void setPrecio(float precio);

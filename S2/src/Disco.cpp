@@ -12,6 +12,6 @@ Disco::Disco(float valor) {
 	this->tipo = "Disco";
 }
 
-void Disco::aceptar(VisitanteEquipo visitante) {
-	visitante.visitarDisco(this);
+void Disco::aceptar(VisitanteEquipo *visitante, Persona *persona) {
+	visitante->visitarDisco(this, persona);
 }

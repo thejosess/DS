@@ -13,7 +13,7 @@ private:
 public:
 	Disco();
 	Disco(float valor);
-	void aceptar(VisitanteEquipo visitante);
+	void aceptar(VisitanteEquipo *visitante, Persona *persona);
 };
 
 #endif

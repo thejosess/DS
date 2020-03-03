@@ -8,13 +8,13 @@ class VisitantePrecio : public VisitanteEquipo {
 private:
 	float coste;
 
-	void visitarDisco(Disco *d);
-	void visitarTarjeta(Tarjeta *t);
-	void visitarBus(Bus *b);
+	void visitarDisco(Disco *d, Persona *persona);
+	void visitarTarjeta(Tarjeta *t, Persona *persona);
+	void visitarBus(Bus *b, Persona *persona);
 
 public:
 	VisitantePrecio();
-	float getCoste(Equipo eqipo);
+	void getCoste(Equipo eqipo, Persona *persona);
 };
 
 #endif

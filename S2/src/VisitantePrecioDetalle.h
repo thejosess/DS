@@ -18,11 +18,11 @@ protected:
 public:
 	VisitantePrecioDetalle(){};
 
-	void getCoste(Equipo equipo);
+	void getCoste(Equipo equipo, Persona *persona);
 
-	void visitarDisco(Disco *d);
-	void visitarTarjeta(Tarjeta *t);
-	void visitarBus(Bus *b);
+	void visitarDisco(Disco *d, Persona *persona);
+	void visitarTarjeta(Tarjeta *t, Persona *persona);
+	void visitarBus(Bus *b, Persona *persona);
 
 	//si las quito de ser inline da error
 };

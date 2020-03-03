@@ -8,7 +8,7 @@ class Bus : public ComponenteEquipo {
 public:
 	Bus();
 	Bus(float valor);
-	void aceptar(VisitanteEquipo visitante);
+	void aceptar(VisitanteEquipo *visitante, Persona *persona);
 };
 
 #endif

@@ -11,6 +11,6 @@ Bus::Bus(float valor){
 	this->tipo;
 }
 
-void Bus::aceptar(VisitanteEquipo visitante) {
-	visitante.visitarBus(this);
+void Bus::aceptar(VisitanteEquipo *visitante, Persona *persona) {
+	visitante->visitarBus(this, persona);
 }
