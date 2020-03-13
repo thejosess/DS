@@ -99,6 +99,6 @@ public class BotonCambio extends javax.swing.JFrame implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        throw new UnsupportedOperationException("No sé qué hacer aquí, el boton qué tiene que observar?"); //To change body of generated methods, choose Tools | Templates.
+        //no hace falta que haga nada
     }
 }
