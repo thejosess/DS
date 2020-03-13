@@ -16,11 +16,14 @@ public class MonitorizacionTemperatura {
         PantallaTemperatura pantalla = new PantallaTemperatura();
         BotonCambio boton = new BotonCambio();
         GraficaTemperatura grafica = new GraficaTemperatura();
+        TiempoSatelital satelite = new TiempoSatelital();
         Simulador simulador = new Simulador(grafica, boton);
         
         boton.setSimulador(simulador);
         pantalla.setSimulador(simulador);
-      
+        satelite.setSimulador(simulador);
+        
+        satelite.setVisible(true);
         pantalla.setVisible(true);
         boton.setVisible(true);
         grafica.setVisible(true);
