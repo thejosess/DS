@@ -12,7 +12,7 @@ public class Simulador extends Observable {
     final static float MIN_TEMP = 0;
     
     
-    final Timer timer = new Timer(2000, new ActionListener()
+    final Timer timer = new Timer(5000, new ActionListener()
     {   
         public void actionPerformed(final ActionEvent e)
         {
@@ -24,6 +24,7 @@ public class Simulador extends Observable {
     {
         this.addObserver(grafica);
         this.addObserver(boton);
+        this.temperatura = MIN_TEMP;
     }
     
     void empezar()
@@ -57,6 +58,8 @@ public class Simulador extends Observable {
     }
 
     public void setTemperatura(float temp) {
-        actualizarTemperatura(temp);
+        temperatura = temp;
+        this.setChanged();
+        this.notifyObservers(temperatura);
     }
 }

@@ -5,30 +5,60 @@
  */
 package S3;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
+import javax.swing.Timer;
 
 /**
  *
  * @author ray
  */
 public class PantallaTemperatura extends javax.swing.JFrame implements Observer {
+    
+    private Simulador simulador;
+
+    final Timer timer = new Timer(8000, new ActionListener()
+    {   
+        public void actionPerformed(final ActionEvent e)
+        {
+            setTemperatura();
+        }
+    }); 
 
     /**
      * Creates new form PantallaTemperatura
      */
     public PantallaTemperatura() {
         initComponents();
+        timer.start();
     }
-
-    @Override
-    public void update(Observable o, Object arg) {
-        Float temp = (Float)arg;
+    
+    void setSimulador(Simulador sim) {
+        simulador = sim;
+    }
+    
+     void setTemperatura(){
+        Float temp = simulador.getTemperatura();
         Float far = (temp * (9/5) + 32);
         celsius.setText(temp.toString());
         fahrenheit.setText(far.toString());
         repaint();
         revalidate();
+    }
+    
+    
+
+    @Override
+    public void update(Observable o, Object arg) {
+        /*Float temp = (Float)arg;
+        Float far = (temp * (9/5) + 32);
+        celsius.setText(temp.toString());
+        fahrenheit.setText(far.toString());
+        repaint();
+        revalidate();*/
+        //La comunicacion es pull y no esta suscrito
     }
     
     /**
@@ -64,13 +94,16 @@ public class PantallaTemperatura extends javax.swing.JFrame implements Observer 
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(fahrenheit, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
                     .addComponent(celsius, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(68, 68, 68))
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

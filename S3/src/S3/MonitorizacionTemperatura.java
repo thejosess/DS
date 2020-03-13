@@ -19,12 +19,14 @@ public class MonitorizacionTemperatura {
         Simulador simulador = new Simulador(grafica, boton);
         
         boton.setSimulador(simulador);
+        pantalla.setSimulador(simulador);
       
         pantalla.setVisible(true);
         boton.setVisible(true);
         grafica.setVisible(true);
         
         simulador.empezar();
+        pantalla.setTemperatura();
     }
     
 }
