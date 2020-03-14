@@ -5,6 +5,7 @@
  */
 package S3;
 
+import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.Random;
@@ -15,6 +16,7 @@ import java.util.Random;
  */
 public class GraficaTemperatura extends javax.swing.JFrame implements Observer{
 
+    private ArrayList<Integer> registro;
     /**
      * Creates new form GraficaTemperatura
      */
@@ -22,6 +24,17 @@ public class GraficaTemperatura extends javax.swing.JFrame implements Observer{
         initComponents();
         jProgressBar1.setMaximum((int)Simulador.MAX_TEMP);
         jProgressBar1.setMinimum((int)Simulador.MIN_TEMP);
+        jProgressBar2.setMaximum((int)Simulador.MAX_TEMP);
+        jProgressBar2.setMinimum((int)Simulador.MIN_TEMP);
+        jProgressBar3.setMaximum((int)Simulador.MAX_TEMP);
+        jProgressBar3.setMinimum((int)Simulador.MIN_TEMP);
+        jProgressBar4.setMaximum((int)Simulador.MAX_TEMP);
+        jProgressBar4.setMinimum((int)Simulador.MIN_TEMP);
+        jProgressBar5.setMaximum((int)Simulador.MAX_TEMP);
+        jProgressBar5.setMinimum((int)Simulador.MIN_TEMP);
+        registro = new ArrayList<>();
+        for(int i = 0; i < 5; i++)
+            registro.add(0);
     }
 
     /**
@@ -174,33 +187,30 @@ public class GraficaTemperatura extends javax.swing.JFrame implements Observer{
             }
         });
     }
+    
+    private void aniadir(Object arg)
+    {
+        for(int i = 4; i > 0; i--)
+        {
+            registro.set(i, registro.get(i-1));
+        }
+        
+        registro.set(0, (int)(float)arg);
+    }
 
     @Override
     public void update(Observable o, Object arg) {
-        //int valor = arg.toString();ç
-        Random rand = new Random();
+        aniadir(arg);
         
-        int bar = rand.nextInt((5 - 1) + 1) + 1;
-        
-        switch (bar){
-            case 1: jProgressBar1.setValue((int)(float)arg);
-            break;
-            
-            case 2: jProgressBar2.setValue((int)(float)arg);
-            break;
-            
-            case 3: jProgressBar3.setValue((int)(float)arg);
-            break;
-            
-            case 4: jProgressBar4.setValue((int)(float)arg);
-            break;
-            
-            case 5: jProgressBar5.setValue((int)(float)arg);
-            break;
-        }
-        
-        
-        
+        jProgressBar1.setValue(registro.get(0));
+
+        jProgressBar2.setValue(registro.get(1));
+
+        jProgressBar3.setValue(registro.get(2));
+
+        jProgressBar4.setValue(registro.get(3));
+
+        jProgressBar5.setValue(registro.get(4));
         
     }
 
