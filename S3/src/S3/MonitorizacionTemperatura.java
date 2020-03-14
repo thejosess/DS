@@ -21,7 +21,11 @@ public class MonitorizacionTemperatura {
         
         boton.setSimulador(simulador);
         pantalla.setSimulador(simulador);
-        satelite.setSimulador(simulador);
+        
+        
+        Simulador simulador2 = new Simulador(grafica, boton);
+        Simulador simulador3 = new Simulador(grafica, boton);
+        satelite.setSimulador(simulador,simulador2,simulador3);
         
         satelite.setVisible(true);
         pantalla.setVisible(true);
@@ -29,6 +33,8 @@ public class MonitorizacionTemperatura {
         grafica.setVisible(true);
         
         simulador.empezar();
+        simulador2.empezar();
+        simulador3.empezar();
         pantalla.setTemperatura();
     }
     

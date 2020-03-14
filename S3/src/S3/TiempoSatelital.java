@@ -15,13 +15,20 @@ import javax.swing.JPanel;
  */
 public class TiempoSatelital extends javax.swing.JFrame {
 
-    private Simulador simulador;
+    private Simulador simulador1;
+    private Simulador simulador2;
+    private Simulador simulador3;
+    
+    VentanaTemperatura barce = new VentanaTemperatura();
+    VentanaTemperatura madr = new VentanaTemperatura();
+    VentanaTemperatura anda = new VentanaTemperatura();
 
     /**
      * Creates new form TiempoSatelital
      */
     public TiempoSatelital() {
         initComponents();
+        barce = new VentanaTemperatura();
     }
 
     /**
@@ -72,25 +79,26 @@ public class TiempoSatelital extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void madridActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_madridActionPerformed
-        VentanaTemperatura madrid = new VentanaTemperatura();
-        simulador.addObserver(madrid);
-        madrid.setVisible(true);
+        madr.setVisible(true);
     }//GEN-LAST:event_madridActionPerformed
 
     private void andaluciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_andaluciaActionPerformed
-        VentanaTemperatura andalucia = new VentanaTemperatura();
-        simulador.addObserver(andalucia);
-        andalucia.setVisible(true);
+        anda.setVisible(true);
     }//GEN-LAST:event_andaluciaActionPerformed
 
     private void barcelonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barcelonaActionPerformed
-        VentanaTemperatura barcelona = new VentanaTemperatura();
-        simulador.addObserver(barcelona);
-        barcelona.setVisible(true);
+        barce.setVisible(true);
     }//GEN-LAST:event_barcelonaActionPerformed
 
-    void setSimulador(Simulador sim) {
-        simulador = sim;
+    void setSimulador(Simulador sim1, Simulador sim2, Simulador sim3) {
+        simulador1 = sim1;
+        simulador1.addObserver(barce);
+        
+        simulador2 = sim2;
+        simulador2.addObserver(madr);
+        
+        simulador3 = sim3;
+        simulador3.addObserver(anda);
     }
     
     
