@@ -27,6 +27,11 @@ public class Simulador extends Observable {
         this.temperatura = MIN_TEMP;
     }
     
+    Simulador()
+    {
+        this.temperatura = MIN_TEMP;
+    }
+    
     void empezar()
     {
         timer.start();
