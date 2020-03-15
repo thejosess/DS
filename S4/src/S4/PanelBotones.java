@@ -39,6 +39,8 @@ public class PanelBotones extends javax.swing.JPanel {
         BotonAcelerar = new javax.swing.JToggleButton();
         BotonFrenar = new javax.swing.JToggleButton();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.gray, 3));
+
         EtiqMostrarEstado.setBackground(new java.awt.Color(254, 254, 254));
         EtiqMostrarEstado.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         EtiqMostrarEstado.setForeground(java.awt.Color.red);
@@ -52,7 +54,7 @@ public class PanelBotones extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(EtiqMostrarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -101,7 +103,7 @@ public class PanelBotones extends javax.swing.JPanel {
                         .addComponent(BotonAcelerar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
                         .addComponent(BotonFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 40, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
