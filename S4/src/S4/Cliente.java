@@ -5,6 +5,8 @@
  */
 package S4;
 
+import java.awt.BorderLayout;
+
 /**
  *
  * @author ray
@@ -30,7 +32,9 @@ public class Cliente {
         
         //PanelBotones panelBotones = new PanelBotones();
         //panelBotones.setVisible(true);
-        
+        Ventana prueba = new Ventana();
+
+        prueba.setVisible(true);
     }
     
 }
