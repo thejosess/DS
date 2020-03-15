@@ -5,6 +5,9 @@
  */
 package S4;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 /**
  *
  * @author ray
@@ -18,6 +21,12 @@ public class GestorFiltros {
     {
         cadena = new CadenaFiltros();
         this.salpicadero = new Salpicadero();
+        this.salpicadero.addWindowListener(new WindowAdapter(){
+        @Override
+        public void windowClosing(WindowEvent e){
+            System.exit(0);
+        }
+        });
         //en el guion pone que es CadenaFiltros quien hace salpicadero.ejecutar, por eso no está aqui el atributo
     }
     

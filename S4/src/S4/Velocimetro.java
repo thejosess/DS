@@ -35,6 +35,8 @@ public class Velocimetro extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         velocidad = new javax.swing.JTextField();
 
+        setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.gray, 3));
+
         jLabel1.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         jLabel1.setText("Velocimetro");
 
@@ -54,7 +56,7 @@ public class Velocimetro extends javax.swing.JPanel {
                         .addComponent(jLabel2)
                         .addGap(41, 41, 41)
                         .addComponent(velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(152, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -65,7 +67,7 @@ public class Velocimetro extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(velocidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

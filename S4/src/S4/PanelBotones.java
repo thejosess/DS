@@ -35,10 +35,9 @@ public class PanelBotones extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         EtiqMostrarEstado = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        BotonEncender = new javax.swing.JToggleButton();
         BotonAcelerar = new javax.swing.JToggleButton();
         BotonFrenar = new javax.swing.JToggleButton();
-        BotonEncender = new javax.swing.JToggleButton();
 
         EtiqMostrarEstado.setBackground(new java.awt.Color(254, 254, 254));
         EtiqMostrarEstado.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
@@ -60,8 +59,18 @@ public class PanelBotones extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(EtiqMostrarEstado, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        BotonEncender.setBackground(new java.awt.Color(254, 254, 254));
+        BotonEncender.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
+        BotonEncender.setForeground(java.awt.Color.green);
+        BotonEncender.setText("ENCENDER");
+        BotonEncender.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonEncenderActionPerformed(evt);
+            }
+        });
 
         BotonAcelerar.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
         BotonAcelerar.setText("ACELERAR");
@@ -79,49 +88,20 @@ public class PanelBotones extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(BotonAcelerar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(BotonFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(22, 22, 22))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonFrenar)
-                    .addComponent(BotonAcelerar))
-                .addContainerGap())
-        );
-
-        BotonEncender.setBackground(new java.awt.Color(254, 254, 254));
-        BotonEncender.setFont(new java.awt.Font("Ubuntu", 1, 15)); // NOI18N
-        BotonEncender.setForeground(java.awt.Color.green);
-        BotonEncender.setText("ENCENDER");
-        BotonEncender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonEncenderActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(BotonEncender)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(71, 71, 71)
+                        .addComponent(BotonAcelerar, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(BotonFrenar, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -129,15 +109,12 @@ public class PanelBotones extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonEncender)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonEncender)
+                    .addComponent(BotonAcelerar)
+                    .addComponent(BotonFrenar))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -171,12 +148,13 @@ public class PanelBotones extends javax.swing.JPanel {
     }//GEN-LAST:event_BotonEncenderActionPerformed
 
     private void BotonFrenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonFrenarActionPerformed
-        
+
         if(BotonEncender.isSelected() && !BotonAcelerar.isSelected())
         {
-            BotonFrenar.setText("FRENANDO");
+            BotonFrenar.setText("Soltar Freno");
             BotonFrenar.setForeground(RED);
-            
+
+            this.EtiqMostrarEstado.setText("FRENANDO");
             estado = EstadoMotor.FRENANDO;
         }
         else{
@@ -188,37 +166,21 @@ public class PanelBotones extends javax.swing.JPanel {
             BotonFrenar.setText("FRENAR");
             BotonFrenar.setForeground(BLACK);
             BotonFrenar.setSelected(false);
+            EtiqMostrarEstado.setText("ENCENDIDO");
         }
-        
-        
-        /*if(BotonEncender.isSelected() && !BotonAcelerar.isSelected())
-        {
-            BotonFrenar.setText("FRENANDO");
-            BotonFrenar.setForeground(RED);
-            
-            estado = EstadoMotor.FRENANDO;
-        }
-        else
-        {
-            BotonFrenar.setText("FRENAR");
-            BotonFrenar.setForeground(BLACK);
-            
-            estado = EstadoMotor.ENCENDIDO;
-        }*/
-        
     }//GEN-LAST:event_BotonFrenarActionPerformed
 
     private void BotonAcelerarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAcelerarActionPerformed
         if(BotonEncender.isSelected() && !BotonFrenar.isSelected())
         {
-            BotonAcelerar.setText("ACELERANDO");
+            BotonAcelerar.setText("Soltar acelerador");
             BotonAcelerar.setForeground(RED);
-            
+            this.EtiqMostrarEstado.setText("ACELERANDO");
+
             estado = EstadoMotor.ACELERANDO;
         }
         else{
             BotonAcelerar.setSelected(false);
-            estado = EstadoMotor.ENCENDIDO;
         }
         if(!BotonAcelerar.isSelected())
         {
@@ -226,7 +188,7 @@ public class PanelBotones extends javax.swing.JPanel {
             BotonAcelerar.setForeground(BLACK);
             BotonAcelerar.setSelected(false);
         }
-        
+
     }//GEN-LAST:event_BotonAcelerarActionPerformed
 
 
@@ -236,6 +198,5 @@ public class PanelBotones extends javax.swing.JPanel {
     private javax.swing.JToggleButton BotonFrenar;
     private javax.swing.JLabel EtiqMostrarEstado;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

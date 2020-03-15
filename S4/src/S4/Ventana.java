@@ -22,7 +22,12 @@ public class Ventana extends javax.swing.JFrame {
         PanelBotones panel = new PanelBotones();
         panel.setSize(10,10);
         panel.setVisible(true);
-        this.add(panel,BorderLayout.PAGE_START);
+        this.add(panel,BorderLayout.LINE_START);
+        //cambiando el layout cambia la disposición de las cosas
+        
+        Salpicadero salpicadero = new Salpicadero();
+        salpicadero.setVisible(true);
+        this.add(salpicadero, BorderLayout.CENTER);
     }
 
     /**
@@ -34,36 +39,17 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        contenederBotones = new javax.swing.JPanel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        javax.swing.GroupLayout contenederBotonesLayout = new javax.swing.GroupLayout(contenederBotones);
-        contenederBotones.setLayout(contenederBotonesLayout);
-        contenederBotonesLayout.setHorizontalGroup(
-            contenederBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 197, Short.MAX_VALUE)
-        );
-        contenederBotonesLayout.setVerticalGroup(
-            contenederBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 197, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
-                .addComponent(contenederBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(724, Short.MAX_VALUE))
+            .addGap(0, 1803, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(353, Short.MAX_VALUE)
-                .addComponent(contenederBotones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74))
+            .addGap(0, 779, Short.MAX_VALUE)
         );
 
         pack();
@@ -106,6 +92,5 @@ public class Ventana extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel contenederBotones;
     // End of variables declaration//GEN-END:variables
 }
