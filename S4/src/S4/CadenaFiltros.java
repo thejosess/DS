@@ -14,10 +14,12 @@ import java.util.ArrayList;
 public class CadenaFiltros {
     
     ArrayList<Filtro> filtros;
+    Salpicadero salpicadero;
     
     CadenaFiltros()
     {
         filtros = new ArrayList<>();
+        this.salpicadero = salpicadero;
     }
     
     void addFiltro(Filtro filtro)

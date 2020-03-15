@@ -12,10 +12,13 @@ package S4;
 public class GestorFiltros {
     
     private CadenaFiltros cadena;
+    private Salpicadero salpicadero;
     
-    GestorFiltros()
+    GestorFiltros(Salpicadero salpicadero)
     {
         cadena = new CadenaFiltros();
+        this.salpicadero = new Salpicadero();
+        //en el guion pone que es CadenaFiltros quien hace salpicadero.ejecutar, por eso no está aqui el atributo
     }
     
     void addFiltro(Filtro f)
@@ -30,6 +33,6 @@ public class GestorFiltros {
     
     double aplicarFiltros(double revoluciones, EstadoMotor estadoMotor)
     {
-        return cadena.ejecutar(revoluciones, estadoMotor);
+        return salpicadero.ejecutar(cadena.ejecutar(revoluciones, estadoMotor), estadoMotor);
     }
 }

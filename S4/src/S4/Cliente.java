@@ -9,14 +9,15 @@ package S4;
  *
  * @author ray
  */
-public class S4 {
+public class Cliente {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         
-        GestorFiltros gestor = new GestorFiltros();
+        Salpicadero salpicadero = new Salpicadero();
+        GestorFiltros gestor = new GestorFiltros(salpicadero);
         CalcularVelocidad velocidad = new CalcularVelocidad();
         RepercutirRozamiento rozamiento = new RepercutirRozamiento();
         
@@ -26,6 +27,10 @@ public class S4 {
         double revolucionesFinal = gestor.aplicarFiltros(100, EstadoMotor.ACELERANDO);
         
         System.out.println(revolucionesFinal);
+        
+        //PanelBotones panelBotones = new PanelBotones();
+        //panelBotones.setVisible(true);
+        
     }
     
 }
