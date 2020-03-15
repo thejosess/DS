@@ -10,15 +10,10 @@ package S4;
  * @author ray
  */
 public class RepercutirRozamiento implements Filtro {
-
-    final int ROZAMIENTO = 60;
     
     @Override
     public double ejecutar(double revoluciones, EstadoMotor estadoMotor)
     {
-        if(revoluciones != 0)
-            return revoluciones - ROZAMIENTO;
-        else
-            return revoluciones;
+        return revoluciones - ROZAMIENTO;
     }
 }

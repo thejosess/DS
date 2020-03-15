@@ -5,10 +5,38 @@
  */
 package S4;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ray
  */
 public class CadenaFiltros {
     
+    ArrayList<Filtro> filtros;
+    
+    CadenaFiltros()
+    {
+        filtros = new ArrayList<>();
+    }
+    
+    void addFiltro(Filtro filtro)
+    {
+        filtros.add(filtro);
+    }
+    
+    void vaciarFiltros()
+    {
+        filtros.clear();
+    }
+    
+    double ejecutar(double revoluciones, EstadoMotor estadoMotor)
+    {
+        for(Filtro f : filtros)
+        {
+            revoluciones = f.ejecutar(revoluciones, estadoMotor);
+        }
+        
+        return revoluciones;
+    }
 }

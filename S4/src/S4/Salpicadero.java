@@ -10,5 +10,14 @@ package S4;
  * @author ray
  */
 public class Salpicadero {
+    private int rpm;
+    private double velocidad;
+    private double distancia;
     
+    static final double RADIO = 0.15;
+    
+    double velocidad()
+    {
+        return 2*Math.PI*RADIO * rpm * (60/1000);
+    }
 }

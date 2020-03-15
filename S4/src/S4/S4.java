@@ -15,7 +15,17 @@ public class S4 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        GestorFiltros gestor = new GestorFiltros();
+        CalcularVelocidad velocidad = new CalcularVelocidad();
+        RepercutirRozamiento rozamiento = new RepercutirRozamiento();
+        
+        gestor.addFiltro(velocidad);
+        gestor.addFiltro(rozamiento);
+        
+        double revolucionesFinal = gestor.aplicarFiltros(100, EstadoMotor.ACELERANDO);
+        
+        System.out.println(revolucionesFinal);
     }
     
 }

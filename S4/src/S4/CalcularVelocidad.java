@@ -12,7 +12,6 @@ package S4;
 public class CalcularVelocidad implements Filtro {
     
     private int incrementoVelocidad;
-    private final int LIMITE = 5000;
     
     private void calcularIncremento(EstadoMotor estado)
     {
@@ -54,6 +53,6 @@ public class CalcularVelocidad implements Filtro {
             }
         }
         
-        return 2*Math.PI*RADIO * revoluciones * (60/1000);
+        return revoluciones;
     }
 }
