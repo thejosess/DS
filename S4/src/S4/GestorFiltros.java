@@ -27,7 +27,6 @@ public class GestorFiltros {
             System.exit(0);
         }
         });
-        //en el guion pone que es CadenaFiltros quien hace salpicadero.ejecutar, por eso no está aqui el atributo
     }
     
     void addFiltro(Filtro f)
@@ -51,7 +50,7 @@ public class GestorFiltros {
         }
         else if(revoluciones <= 0)
         {
-            System.out.println("El coche se ha parado");
+            System.out.println("El coche esta parado");
             revoluciones = 0;
         }
         

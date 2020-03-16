@@ -62,7 +62,6 @@ public class Salpicadero extends javax.swing.JPanel {
         cuentaRevoluciones.setRevoluciones(rpm);
         this.add(cuentaRevoluciones,BorderLayout.EAST);
         
-        //podriamos hacer una variable que sea duracion o algo asi
     }
     
     double getVelocidad()

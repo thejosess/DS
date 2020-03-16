@@ -191,6 +191,7 @@ public class PanelBotones extends javax.swing.JPanel {
             BotonAcelerar.setText("ACELERAR");
             BotonAcelerar.setForeground(BLACK);
             BotonAcelerar.setSelected(false);
+            EtiqMostrarEstado.setText("ENCENDIDO");
             salpicadero.setEstado(EstadoMotor.ENCENDIDO);
         }
 
