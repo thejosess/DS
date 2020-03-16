@@ -14,14 +14,14 @@ import static java.awt.Color.*;
  */
 public class PanelBotones extends javax.swing.JPanel {
 
-    private EstadoMotor estado;
+    private Salpicadero salpicadero;
     /**
      * Creates new form PanelBotones
      */
-    public PanelBotones() {
+    public PanelBotones(Salpicadero salpi) {
         initComponents();
-        estado = EstadoMotor.APAGADO;
-        //estado necesario para comunicarselo al cliente
+        salpicadero = salpi;
+        //salpicadero.setEstado(cesario para comunicarselo al cliente
     }
 
     /**
@@ -129,7 +129,7 @@ public class PanelBotones extends javax.swing.JPanel {
             BotonEncender.setForeground(RED);
             EtiqMostrarEstado.setText("ENCENDIDO");
             
-            estado = EstadoMotor.ENCENDIDO;
+            salpicadero.setEstado(EstadoMotor.ENCENDIDO);
         }  
         else{
 
@@ -147,7 +147,7 @@ public class PanelBotones extends javax.swing.JPanel {
             BotonFrenar.setSelected(false);
             
             EtiqMostrarEstado.setText("APAGADO");
-            estado = EstadoMotor.APAGADO;
+            salpicadero.setEstado(EstadoMotor.APAGADO);
         }
     }//GEN-LAST:event_BotonEncenderActionPerformed
 
@@ -157,13 +157,12 @@ public class PanelBotones extends javax.swing.JPanel {
         {
             BotonFrenar.setText("Soltar Freno");
             BotonFrenar.setForeground(RED);
-
             this.EtiqMostrarEstado.setText("FRENANDO");
-            estado = EstadoMotor.FRENANDO;
+            
+            salpicadero.setEstado(EstadoMotor.FRENANDO);
         }
         else{
             BotonFrenar.setSelected(false);
-            estado = EstadoMotor.ENCENDIDO;
         }
         if(!BotonFrenar.isSelected())
         {
@@ -171,6 +170,7 @@ public class PanelBotones extends javax.swing.JPanel {
             BotonFrenar.setForeground(BLACK);
             BotonFrenar.setSelected(false);
             EtiqMostrarEstado.setText("ENCENDIDO");
+            salpicadero.setEstado(EstadoMotor.ENCENDIDO);
         }
     }//GEN-LAST:event_BotonFrenarActionPerformed
 
@@ -181,7 +181,7 @@ public class PanelBotones extends javax.swing.JPanel {
             BotonAcelerar.setForeground(RED);
             this.EtiqMostrarEstado.setText("ACELERANDO");
 
-            estado = EstadoMotor.ACELERANDO;
+            salpicadero.setEstado(EstadoMotor.ACELERANDO);
         }
         else{
             BotonAcelerar.setSelected(false);
@@ -191,6 +191,7 @@ public class PanelBotones extends javax.swing.JPanel {
             BotonAcelerar.setText("ACELERAR");
             BotonAcelerar.setForeground(BLACK);
             BotonAcelerar.setSelected(false);
+            salpicadero.setEstado(EstadoMotor.ENCENDIDO);
         }
 
     }//GEN-LAST:event_BotonAcelerarActionPerformed

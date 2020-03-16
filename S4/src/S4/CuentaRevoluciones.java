@@ -17,6 +17,10 @@ public class CuentaRevoluciones extends javax.swing.JPanel {
     public CuentaRevoluciones() {
         initComponents();
     }
+    
+    void setRevoluciones(double rpm){
+        this.revoluciones.setText(Double.toString(rpm));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +33,7 @@ public class CuentaRevoluciones extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        revoluciones = new javax.swing.JTextField();
 
         setBorder(javax.swing.BorderFactory.createLineBorder(java.awt.Color.gray, 3));
 
@@ -50,7 +54,7 @@ public class CuentaRevoluciones extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addGap(58, 58, 58)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(revoluciones, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(94, 94, 94))
         );
         layout.setVerticalGroup(
@@ -61,7 +65,7 @@ public class CuentaRevoluciones extends javax.swing.JPanel {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(revoluciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -70,6 +74,6 @@ public class CuentaRevoluciones extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField revoluciones;
     // End of variables declaration//GEN-END:variables
 }

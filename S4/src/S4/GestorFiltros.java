@@ -20,7 +20,7 @@ public class GestorFiltros {
     GestorFiltros(Salpicadero salpicadero)
     {
         cadena = new CadenaFiltros();
-        this.salpicadero = new Salpicadero();
+        this.salpicadero = salpicadero;
         this.salpicadero.addWindowListener(new WindowAdapter(){
         @Override
         public void windowClosing(WindowEvent e){
@@ -40,10 +40,21 @@ public class GestorFiltros {
         cadena.vaciarFiltros();
     }
     
-    double aplicarFiltros(double revoluciones, EstadoMotor estadoMotor)
+    double ejecutar()
     {
-        double conFiltros = cadena.ejecutar(revoluciones, estadoMotor);
+        double revoluciones = cadena.ejecutar(salpicadero.getRPM(), salpicadero.getEstado());
         
-        return salpicadero.ejecutar(conFiltros, estadoMotor);
+        if(revoluciones >= salpicadero.LIMITE)
+        {
+            System.out.println("El motor ha llegado a sus revoluciones máximas");
+            revoluciones = salpicadero.LIMITE;
+        }
+        else if(revoluciones <= 0)
+        {
+            System.out.println("El coche se ha parado");
+            revoluciones = 0;
+        }
+        
+        return salpicadero.ejecutar(revoluciones, salpicadero.getEstado());
     }
 }

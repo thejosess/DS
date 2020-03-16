@@ -18,30 +18,48 @@ public class Salpicadero extends javax.swing.JPanel {
     private double rpm;
     private double velocidad;
     private double distancia;
+    private double distanciaTotal;
+    private EstadoMotor estado;
+    
     private long inicio;
     private long fin;
     
+    private Velocimetro velocimetro;
+    private CuentaKilometros cuentaKilometros;
+    private CuentaRevoluciones cuentaRevoluciones;
+    
     static final double RADIO = 0.15;
+    static final int LIMITE = 5000;
 
     /**
      * Creates new form Salpicadero
      */
     public Salpicadero() {
+        rpm = 0;
+        velocidad = 0;
+        distancia = 0;
+        distanciaTotal = 0;
+        estado = EstadoMotor.APAGADO;
+        
         initComponents();
         inicio = System.currentTimeMillis();
         fin = 0;
         this.setLayout(new BorderLayout());
         
-        Velocimetro velocimetro = new Velocimetro();
+        velocimetro = new Velocimetro();
         velocimetro.setVisible(true);
+        velocimetro.setVelocidad(velocidad);
         this.add(velocimetro);
         
-        CuentaKilometros cuentaKilometros = new CuentaKilometros();
+        cuentaKilometros = new CuentaKilometros();
         cuentaKilometros.setVisible(true);
+        cuentaKilometros.setContadorReciente(distancia);
+        cuentaKilometros.setContadorTotal(distancia);
         this.add(cuentaKilometros,BorderLayout.PAGE_END);
         
-        CuentaRevoluciones cuentaRevoluciones = new CuentaRevoluciones();
+        cuentaRevoluciones = new CuentaRevoluciones();
         cuentaRevoluciones.setVisible(true);
+        cuentaRevoluciones.setRevoluciones(rpm);
         this.add(cuentaRevoluciones,BorderLayout.EAST);
         
         //podriamos hacer una variable que sea duracion o algo asi
@@ -52,11 +70,24 @@ public class Salpicadero extends javax.swing.JPanel {
         return velocidad;
     }
     
+    void setEstado(EstadoMotor estado)
+    {
+        this.estado = estado;
+    }
+    
+    double getRPM()
+    {
+        return rpm;
+    }
+    
+    EstadoMotor getEstado()
+    {
+        return estado;
+    }
+    
     void velocidad()
     {
         velocidad = 2*Math.PI*RADIO * rpm * (60.0/1000);
-        System.out.println(velocidad);
-        //hay que hacerlo asi, de la otra forma velocidad nos daba siempre cero
     }
     
     double duracion(){
@@ -71,6 +102,12 @@ public class Salpicadero extends javax.swing.JPanel {
         this.rpm = revoluciones;
         this.velocidad();
         this.distancia = this.velocidad * this.duracion();
+        distanciaTotal += distancia;
+        
+        velocimetro.setVelocidad(velocidad);
+        cuentaRevoluciones.setRevoluciones(rpm);
+        cuentaKilometros.setContadorTotal(distanciaTotal);
+        cuentaKilometros.setContadorReciente(distancia);
    
         return rpm;
     }

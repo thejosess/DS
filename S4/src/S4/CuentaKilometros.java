@@ -18,12 +18,12 @@ public class CuentaKilometros extends javax.swing.JPanel {
         initComponents();
     }
     
-    void setContadorReciente(String contador){
-        contadorReciente.setText(contador);
+    void setContadorReciente(double distancia){
+        contadorReciente.setText(Double.toString(distancia));
     }
     
-    void setContadorTotal(String contador){
-        contadorTotal.setText(contador);
+    void setContadorTotal(double distancia){
+        contadorTotal.setText(Double.toString(distancia));
     }
 
     /**

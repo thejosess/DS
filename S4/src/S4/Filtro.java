@@ -11,7 +11,6 @@ package S4;
  */
 public interface Filtro {
     
-    static final int LIMITE = 5000;
     static final int ROZAMIENTO = 30;
     
     double ejecutar(double revoluciones, EstadoMotor estadoMotor);

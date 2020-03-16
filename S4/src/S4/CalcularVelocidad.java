@@ -35,23 +35,7 @@ public class CalcularVelocidad implements Filtro {
     {   
         calcularIncremento(estadoMotor);
         
-        if(incrementoVelocidad != 0)
-        {
-            revoluciones = revoluciones + incrementoVelocidad;
-
-            if(revoluciones > LIMITE)
-            {
-                System.out.println("El motor ha llegado a sus revoluciones máximas");
-                revoluciones = LIMITE;
-                estadoMotor = EstadoMotor.ENCENDIDO;
-            }
-            else if(revoluciones < 0)
-            {
-                System.out.println("El coche se ha parado");
-                revoluciones = 0;
-                estadoMotor = EstadoMotor.ENCENDIDO;
-            }
-        }
+        revoluciones = revoluciones + incrementoVelocidad;
         
         return revoluciones;
     }

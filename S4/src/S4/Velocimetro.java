@@ -18,8 +18,8 @@ public class Velocimetro extends javax.swing.JPanel {
         initComponents();
     }
     
-    void setVelocidad(String velocidad){
-        this.velocidad.setText(velocidad);
+    void setVelocidad(double velocidad){
+        this.velocidad.setText(Double.toString(velocidad));
     }
 
     /**
