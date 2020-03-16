@@ -19,7 +19,11 @@ public class Cliente {
         this.gestorFiltros = gestorFiltros;
     }
     
-    public void solicitar(){
-        gestorFiltros.ejecutar();
+    public void solicitar() throws InterruptedException{
+        while(true)
+        {
+            gestorFiltros.ejecutar();
+            Thread.sleep(1000);
+        }
     }
 }

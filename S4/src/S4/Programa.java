@@ -20,16 +20,11 @@ public class Programa {
         gestor.addFiltro(velocidad);
         gestor.addFiltro(rozamiento);
         
-        Cliente cliente = new Cliente(gestor);
-        
         Ventana ventana = new Ventana(salpicadero);
         ventana.setVisible(true);
         
-        while(true)
-        {
-            cliente.solicitar();
-            Thread.sleep(1000);
-        }
+        Cliente cliente = new Cliente(gestor);
         
+        cliente.solicitar();
     }
 }

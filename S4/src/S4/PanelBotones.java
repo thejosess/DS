@@ -164,7 +164,7 @@ public class PanelBotones extends javax.swing.JPanel {
         else{
             BotonFrenar.setSelected(false);
         }
-        if(!BotonFrenar.isSelected())
+        if(!BotonFrenar.isSelected() && !BotonAcelerar.isSelected())
         {
             BotonFrenar.setText("FRENAR");
             BotonFrenar.setForeground(BLACK);
@@ -186,7 +186,7 @@ public class PanelBotones extends javax.swing.JPanel {
         else{
             BotonAcelerar.setSelected(false);
         }
-        if(!BotonAcelerar.isSelected())
+        if(!BotonAcelerar.isSelected() && !BotonFrenar.isSelected())
         {
             BotonAcelerar.setText("ACELERAR");
             BotonAcelerar.setForeground(BLACK);
