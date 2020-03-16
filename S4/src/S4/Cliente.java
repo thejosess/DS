@@ -28,7 +28,7 @@ public class Cliente {
         
         double revolucionesFinal = gestor.aplicarFiltros(100, EstadoMotor.ACELERANDO);
         
-        System.out.println(revolucionesFinal);
+        System.out.println(salpicadero.getVelocidad());
         
         //PanelBotones panelBotones = new PanelBotones();
         //panelBotones.setVisible(true);

@@ -42,6 +42,8 @@ public class GestorFiltros {
     
     double aplicarFiltros(double revoluciones, EstadoMotor estadoMotor)
     {
-        return salpicadero.ejecutar(cadena.ejecutar(revoluciones, estadoMotor), estadoMotor);
+        double conFiltros = cadena.ejecutar(revoluciones, estadoMotor);
+        
+        return salpicadero.ejecutar(conFiltros, estadoMotor);
     }
 }

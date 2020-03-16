@@ -47,9 +47,15 @@ public class Salpicadero extends javax.swing.JPanel {
         //podriamos hacer una variable que sea duracion o algo asi
     }
     
-        void velocidad()
+    double getVelocidad()
     {
-        velocidad = (((2*Math.PI)*RADIO)* rpm) * (double) 60/1000;
+        return velocidad;
+    }
+    
+    void velocidad()
+    {
+        velocidad = 2*Math.PI*RADIO * rpm * (60.0/1000);
+        System.out.println(velocidad);
         //hay que hacerlo asi, de la otra forma velocidad nos daba siempre cero
     }
     
