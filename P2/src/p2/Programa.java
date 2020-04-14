@@ -21,14 +21,7 @@ public class Programa extends JApplet {
      * the browser.
      */
     public void init() {
-		JLabel etiqueta = new JLabel("Applet hola mundo");
-		add(etiqueta);    
-    }
-
-    // TODO overwrite start(), stop() and destroy() methods
-    /*@Override
-    public void start(){
-                        Salpicadero salpicadero = new Salpicadero();
+        Salpicadero salpicadero = new Salpicadero();
         GestorFiltros gestor = new GestorFiltros(salpicadero);
         CalcularVelocidad velocidad = new CalcularVelocidad();
         RepercutirRozamiento rozamiento = new RepercutirRozamiento();
@@ -46,6 +39,5 @@ public class Programa extends JApplet {
         } catch (InterruptedException ex) {
             Logger.getLogger(Programa.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }*/
-
+    }
 }
