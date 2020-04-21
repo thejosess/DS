@@ -5,6 +5,7 @@
  */
 package Vista;
 
+import Controlador.EstadoMotor;
 import Controlador.SCACV;
 import Controlador.Palanca;
 import Controlador.EstadoPalanca;
@@ -34,13 +35,13 @@ public class PanelPalanca extends JPanel{
         this.motor = motor;
         this.palanca = palanca;
         double radius = 50.0D;
-        this.setSize(315, 315);
+        this.setSize(370, 315);
             
         this.marco = new RoundRectangle2D.Double(5.0D, 5.0D, getWidth()-5, getHeight(), 15.0D, 15.0D);
         
         this.cuadroParar = new RoundRectangle2D.Double(15.0D, 136.0D, 101.5D, 63.0D, 10.0D, 10.0D);
         this.cuadroAcelerar = new RoundRectangle2D.Double(106.5D, 63.0D, 101.5D, 63.0D, 10.0D, 10.0D);
-        this.cuadroMantener = new RoundRectangle2D.Double(198.0D, 136.0D, 105.5D, 63.0D, 10.0D, 10.0D);
+        this.cuadroMantener = new RoundRectangle2D.Double(198.0D, 136.0D, 130.0D, 63.0D, 10.0D, 10.0D);
         this.cuadroReiniciar = new RoundRectangle2D.Double(106.5D, 209.0D, 101.5D, 63.0D, 10.0D, 10.0D);
         this.circulo = new Ellipse2D.Double(157.5 - radius, 167.5 - radius, 2.0 * radius, 2.0 * radius);
        
@@ -97,6 +98,11 @@ public class PanelPalanca extends JPanel{
         g2.drawString("Acelerar", 120, 100);
         g2.drawString("Mantener", 212, 176);
         g2.drawString("Reiniciar", 117, 249);
+        
+        /*if(motor.getEstadoMotor() == EstadoMotor.APAGADO)
+        {
+            palanca.cambiarPalanca(EstadoPalanca.APAGAR);
+        }*/
        
      }
     

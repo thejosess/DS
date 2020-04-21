@@ -6,7 +6,9 @@
 package Controlador;
 
 import Modelo.Vehiculo;
+import static java.lang.Math.pow;
 import static java.lang.Thread.sleep;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
@@ -27,6 +29,8 @@ public class SCACV extends Thread{
     private int revolucionesRevisionMotor;
     private int revolucionesRevisionPastillas;
     private int revolucionesRevisionGeneral;
+    private double gasolina;
+    private Random random = new Random();
     
     public SCACV(Vehiculo vehiculo){
         this.vehiculo = vehiculo;
@@ -36,6 +40,7 @@ public class SCACV extends Thread{
         this.velocidadMemorizada = 0.0;
         this.distancia = 0.0;
         this.rpm = 0;
+        this.repostar();
         
         this.revolucionesRevisionGeneral=0;
         this.revolucionesRevisionMotor=0;
@@ -49,6 +54,11 @@ public class SCACV extends Thread{
             start();
     }
     
+    public void repostar(){
+        if(this.vehiculo.getEstadoMotor() == EstadoMotor.APAGADO)
+            this.gasolina = 60.0 + (100.0 - 60.0) * this.random.nextDouble();
+    }
+    
     public void apagar(){
         this.eliminarVelocidad();
     }
@@ -59,6 +69,10 @@ public class SCACV extends Thread{
 
     public int getRevolucionesTotal() {
         return revolucionesTotal;
+    }
+    
+    public double getGasolina(){
+        return this.gasolina;
     }
 
     public int getRevolucionesRevisionMotor() {
@@ -148,6 +162,18 @@ public class SCACV extends Thread{
         this.rpm = this.vehiculo.getRpm();
     }
     
+    public double getConsumo(){
+        return this.getRpm() * this.getRpm() * 5 * pow(10,-10);
+    }
+    
+    public void calcularGasolina(){
+        this.gasolina -=  this.getConsumo();
+        if(gasolina < 0)
+            gasolina = 0;
+    }
+    
+    
+    
     @Override
     public void run(){
         while(true){
@@ -218,6 +244,12 @@ public class SCACV extends Thread{
                     }
 
                 break;
+            }
+            this.calcularGasolina();
+            if(this.getGasolina() == 0.0)
+            {
+                this.vehiculo.apagar();
+                this.EstadoSCACV = EstadoSCACV.APAGADO;
             }
         }
     }

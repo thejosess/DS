@@ -64,7 +64,7 @@ public class Interfaz  extends JApplet{
         GridBagConstraints pos = new GridBagConstraints();
         
         pos.fill=1;
-        this.setSize(650, 700);
+        this.setSize(1100, 1100);
         this.getRootPane().setBorder(BorderFactory.createMatteBorder(5, 5, 5, 5, Color.BLACK));
         
         setBackground(Color.BLACK);
@@ -106,6 +106,8 @@ public class Interfaz  extends JApplet{
         pos.weighty = 5.0D;
         gridbag.setConstraints(PanelRevisiones, pos);
         add(PanelRevisiones);  
+        
+        
         
         
         validate();

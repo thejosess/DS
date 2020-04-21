@@ -98,6 +98,10 @@ public class Vehiculo extends Thread{
         return this.rpm;
     }
     
+    public EstadoMotor getEstadoMotor(){
+        return this.estadoMotor;
+    }
+    
     
     @Override
     public void run(){
@@ -112,6 +116,7 @@ public class Vehiculo extends Thread{
                 this.velocidad = (double)(Math.round(this.velocidad * 100d) / 100d);
                 this.distancia += this.velocidad/60;
                 this.distancia = (double)(Math.round(this.distancia * 100d) / 100d);
+                
             }
             this.interfaz.actualizar();
             

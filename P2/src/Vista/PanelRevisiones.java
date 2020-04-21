@@ -5,27 +5,28 @@
  */
 package Vista;
 
-import Controlador.SCACV;
 import Controlador.Motor;
+import Controlador.SCACV;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
-import javax.swing.JPanel;
 
 /**
  *
- * @author José Santos y Raúl Soria
+ * @author juse
  */
-public class PanelRevisiones extends JPanel{
+public class PanelRevisiones extends javax.swing.JPanel {
+
     private SCACV SCACV;
     private Motor motor;
     private RoundRectangle2D  marco, marcoMotor, marcoPastillas, marcoGeneral;
     private Rectangle2D cuadroMotor, cuadroPastillas, cuadroGeneral;
     
     public PanelRevisiones(SCACV SCACV, Motor motor){
+        initComponents();
         this.SCACV = SCACV;
         this.motor = motor;
         
@@ -79,9 +80,9 @@ public class PanelRevisiones extends JPanel{
         
         g2.setPaint(Color.black);
         g2.setFont(new Font("Cambril", Font.PLAIN, 20));
-        g2.drawString("WAR Rev.Motor", 20, 105);
-        g2.drawString("WAR Rev.Pastillas", 20, 185);
-        g2.drawString("WAR Rev.General", 20, 265);
+        g2.drawString("Rev.Aceite", 20, 105);
+        g2.drawString("Rev.Pastillas", 20, 185);
+        g2.drawString("Rev.General", 20, 265);
         
         g2.setPaint(Color.black);
         g2.draw(cuadroMotor);
@@ -94,10 +95,45 @@ public class PanelRevisiones extends JPanel{
         g2.drawString(String.valueOf(SCACV.getRevolucionesRevisionPastillas()), 233, 185);
         g2.drawString(String.valueOf(SCACV.getRevolucionesRevisionGeneral()), 233, 265);
         
+        //this.SCACV.calcularGasolina();
+        this.radial1Square1.setValue(this.SCACV.getGasolina());
        
     }
     
     public void actualizar(){
         repaint();
     }
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        radial1Square1 = new eu.hansolo.steelseries.gauges.Radial1Square();
+        jButton1 = new javax.swing.JButton();
+
+        setLayout(null);
+
+        radial1Square1.setTitle("Gasolina");
+        radial1Square1.setUnitString("Litros");
+        add(radial1Square1);
+        radial1Square1.setBounds(340, 30, 200, 200);
+
+        jButton1.setText("Repostar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1);
+        jButton1.setBounds(380, 250, 140, 27);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.SCACV.repostar();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private eu.hansolo.steelseries.gauges.Radial1Square radial1Square1;
+    // End of variables declaration//GEN-END:variables
 }
