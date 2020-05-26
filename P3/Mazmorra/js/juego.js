@@ -12,6 +12,8 @@ var muro = 0;
 var puerta = 1;
 var tierra = 2;
 var llave = 3;
+var llave1 = false;
+var llave2 = false;
 
 var protagonista;
 var tileMap;
@@ -46,7 +48,7 @@ var escenario = [
     [0,2,0,2,2,2,0,0,0,0,0,2,0,0,0, 0,0,0,0,0,2,2,2,0,0,0,0,2,2,0],
     [0,2,0,0,0,2,2,2,2,2,2,2,0,2,0, 0,0,0,0,0,0,2,0,0,0,0,0,2,0,0],
     [0,2,0,0,0,2,0,0,0,0,0,2,0,2,2, 2,0,0,2,2,2,2,0,0,0,2,2,2,0,0],
-    [0,2,2,2,0,2,0,0,2,2,0,2,0,0,2, 2,0,0,2,2,2,2,0,0,0,2,2,0,0,0],
+    [0,2,2,2,0,2,2,0,2,2,0,2,0,0,2, 2,0,0,2,2,2,2,0,0,0,2,2,0,0,0],
     [0,2,0,2,0,0,2,0,2,2,0,2,0,0,2, 2,0,0,2,0,0,2,0,0,2,2,2,0,0,0],
     [0,0,0,2,0,0,2,0,2,2,2,2,0,0,2, 2,2,2,2,0,0,2,0,2,2,2,2,2,2,0],
     [0,0,0,2,2,2,2,0,0,0,0,0,0,0,0, 0,0,0,0,0,0,0,0,2,2,2,2,2,2,0],
@@ -169,8 +171,10 @@ function reiniciar()
     camara = camara1;
 
     protagonista.setPosicion(1,1);
-    protagonista.llave1 = false;
-    protagonista.llave2 = false;
+    // protagonista.llave1 = false;
+    // protagonista.llave2 = false;
+    socket.emit("set-llave1", false);
+    socket.emit("set-llave2", false);
 
     enemigos[0].setPosicion(1,8);
     enemigos[1].setPosicion(13,1);
@@ -221,9 +225,42 @@ class Jugador {
         this.x = 1;
         this.y = 1;
         this.color = '#820C01';
-        this.llave1 = false;
-        this.llave2 = false;
+        // this.llave1 = false;
+        // this.llave2 = false;
+        socket.emit("set-llave1", false);
+        socket.emit("set-llave2", false);
     }
+
+    // getLlave(llave)
+    // {
+    //     if(llave == 1)
+    //     {
+    //         console.log("get llave 1");
+    //         socket.emit("get-llave1");
+    //         socket.on("get-llave1", function(data) {
+    //             console.log("data:");
+    //             console.log(data);
+    //             llave1 = data;
+    //         });
+    //         console.log("llave1:");
+    //         console.log(llave1);
+    //         return llave1;
+            
+    //     }
+    //     else if(llave == 2)
+    //     {
+    //         console.log("get llave 2");
+    //         socket.emit("get-llave2");
+    //         socket.on("get-llave2", function(data) {
+    //             console.log("data:");
+    //             console.log(data);
+    //             llave2 = data;
+    //         });
+    //         console.log("llave2:");
+    //         console.log(llave2);
+    //         return llave2;
+    //     }
+    // }
 
     setPosicion(x,y)
     {
@@ -310,6 +347,7 @@ class Jugador {
         if(this.x == x && this.y == y)
         {
             alert('Un enemigo te ha matado :(');
+            socket.emit("sesionTerminada");
             reiniciar();
         }
     }
@@ -320,32 +358,41 @@ class Jugador {
         
         if(objeto == llave)
         {
-            escenario[this.y][this.x] = tierra;
+            socket.emit("get-llaves");
+            socket.on("get-llaves", function(data) {
+                escenario[this.y][this.x] = tierra;
 
-            if(this.llave1)
-            {
-                alert("Has encontrado otra llave!!!!! Ya tienes dos!!");
-                this.llave2 = true;
-            }
-            else
-            {
-                alert("Has encontrado una llave!!");
-                this.llave1 = true;
-            }
+                if(data.llave1)
+                {
+                    alert("Has encontrado otra llave!!!!! Ya tienes dos!!");
+                    // this.llave2 = true;
+                    socket.emit("set-llave2", true);
+                }
+                else
+                {
+                    alert("Has encontrado una llave!!");
+                    // this.llave1 = true;
+                    socket.emit("set-llave1", true);
+                }
+            });
         }
         else if(objeto == puerta)
         {
-            if(this.llave2)
-            {
-                alert("HAS ESCAPADO DEL LABERINTO!!!");
-                reiniciar();
-            }
-            else if(this.llave1)
-            {
-                alert("Tienes una llave... pero la cerradura es para dos llaves!!!");
-            }
-            else
-                alert("Puerta cerrada");
+            socket.emit("get-llaves");
+            socket.on("get-llaves", function(data) {
+                if(data.llave2)
+                {
+                    alert("HAS ESCAPADO DEL LABERINTO!!!");
+                    socket.emit("sumarPuntuacion", 5);
+                    reiniciar();
+                }
+                else if(data.llave1)
+                {
+                    alert("Tienes una llave... pero la cerradura es para dos llaves!!!");
+                }
+                else
+                    alert("Puerta cerrada");
+            });
         }
     }
 }
@@ -450,17 +497,18 @@ class Enemigo {
 
 function inicializar()
 {
+    raking = document.getElementById("ranking");
     canvas = document.createElement("CANVAS");
     canvas.setAttribute("id", "canvas");
     canvas.style.width = canvasWidth;
     canvas.style.height = canvasHeight;
     canvas.style.border = "3px solid black"
-    document.body.appendChild(canvas);
+    document.getElementById("juego").insertBefore(canvas,raking);
     
     ctx = canvas.getContext('2d');
     
     tileMap = new Image();
-    tileMap.src = "img/tilemap.png"
+    tileMap.src = "img/tilemap.png";
 
     camara1 = new Camara(0,0, anchoVisible,altoVisible, 0,0);
     camara2 = new Camara(anchoEscenario/2,0, anchoVisible,altoVisible, 0,0);
@@ -473,15 +521,45 @@ function inicializar()
     enemigos.push(new Enemigo(1,8));
     enemigos.push(new Enemigo(13,1));
     enemigos.push(new Enemigo(8,6));
+    enemigos.push(new Enemigo(5,11));
+    enemigos.push(new Enemigo(9,15));
+    enemigos.push(new Enemigo(28,2));
+    enemigos.push(new Enemigo(27,18));
 
     antorchas.push(new Antorcha(1,3));
     antorchas.push(new Antorcha(4,1));
     antorchas.push(new Antorcha(4,3));
     antorchas.push(new Antorcha(10,2));
     antorchas.push(new Antorcha(10,9));
-    antorchas.push(new Antorcha(2,9));
+    antorchas.push(new Antorcha(0,9));
     antorchas.push(new Antorcha(12,5));
     antorchas.push(new Antorcha(8,5));
+    antorchas.push(new Antorcha(4,7));
+
+    antorchas.push(new Antorcha(0,12));
+    antorchas.push(new Antorcha(1,17));
+    antorchas.push(new Antorcha(7,12));
+    antorchas.push(new Antorcha(7,17));
+    antorchas.push(new Antorcha(10,15));
+    antorchas.push(new Antorcha(4,17));
+    antorchas.push(new Antorcha(12,13));
+
+    antorchas.push(new Antorcha(16,0));
+    antorchas.push(new Antorcha(20,0));
+    antorchas.push(new Antorcha(20,5));
+    antorchas.push(new Antorcha(17,6));
+    antorchas.push(new Antorcha(23,5));
+    antorchas.push(new Antorcha(25,8));
+    antorchas.push(new Antorcha(28,6));
+    antorchas.push(new Antorcha(26,2));
+    antorchas.push(new Antorcha(19,9));
+
+    antorchas.push(new Antorcha(19,11));
+    antorchas.push(new Antorcha(25,12));
+    antorchas.push(new Antorcha(19,16));
+    antorchas.push(new Antorcha(21,18));
+    antorchas.push(new Antorcha(25,19));
+    antorchas.push(new Antorcha(27,15));
 
     colocarObjetos(puerta);
     colocarObjetos(llave);

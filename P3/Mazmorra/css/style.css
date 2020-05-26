@@ -1,0 +1,56 @@
+* {
+    font-family: Calibri, Arial, Helvetica, sans-serif;
+}
+
+#canvas, #ranking {
+    display: inline-block;
+}
+
+#ranking {
+    margin-left: 100px;
+}
+
+#usuario {
+    padding: 20px;
+    font-size: 50px;
+    margin-left: 75px;
+}
+
+#list {
+    font-size: 16pt;
+    color: purple;
+}
+
+#formulario {
+	width: 200px;
+	border: solid #ccc;
+	margin: 20px;
+	padding: 20px;
+    display: inline-block;
+    margin-bottom: 0;
+}
+#formulario label {
+	display: block;
+}
+#formulario input {
+	margin-bottom: 10px;
+	padding: 10px;
+}
+#formulario input[type=text], #formulario input[type=password], #formulario input[type=email] {
+	width: 100%;
+}
+#formulario input[type=submit] {
+	width: 100%;
+	margin-bottom: 0;
+	background: #1668C4;
+	color: white;
+	border: none;
+}
+#formulario input[type=submit]:hover {
+	background: #4A88F4;
+	cursor: pointer;
+}
+
+#canvas {
+    margin-left: 20px;
+}

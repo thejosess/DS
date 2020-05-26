@@ -4,10 +4,75 @@
         <meta charset="UTF-8">
         <title>Mazmorra</title>
         <script type="text/javascript" src="js/juego.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <link rel="stylesheet" href="css/style.css">
+        
+        <script type="text/javascript">
+            var serviceURL = document.URL;
+            var socket = io.connect(serviceURL);
+        </script>
     </head>
 
-    <body onload='javascript:inicializar();'>
+    <body onload='javascript:inicializar(); obtenerRanking();'>
+        <div id="usuarios">
+            <form id="formulario" action="javascript:void(0);" onsubmit="javascript:enviarNick();">
+                <label for="nick">Nick :</label>
+                <input type="text" id="nick" name="nick">
         
+                <input type="submit" value="Enviar información">
+            </form>
+        
+            <div id="usuario"></div>
+        </div>
+    
+        <div id="juego">
+            <div id="ranking">
+                <h2>Ranking</h2>
+                <ol id="list">
+                </ol>
+            </div>
+        </div>
     </body>
+
+
+    
+    <script type="text/javascript">
+        function enviarNick(){
+            console.log("enviando nick");
+            
+            var nick = document.getElementById("nick").value;
+            socket.emit('nick', nick);
+
+            var form = document.getElementById("formulario");
+            form.style.display = "none";
+
+            var textnode = document.createTextNode("Jugando como:" + nick);         
+            var usuario = document.getElementById("usuario");
+            usuario.appendChild(textnode);
+            
+        }
+
+        function actualizarRanking(data){
+            var listElement = document.getElementById('list');
+            var listItem = document.createElement('li');
+
+            listItem.innerHTML = data;
+            listElement.appendChild(listItem);
+        }
+
+        function obtenerRanking(){
+            socket.emit('ranking');
+            socket.on('ranking',function(data){
+                actualizarRanking(data);
+            });
+        }
+
+        socket.on("actualizar-ranking", function() {
+            var listElement = document.getElementById('list');
+            listElement.innerHTML='';
+            socket.emit('ranking');
+        });
+
+    </script>
 
 </html>
